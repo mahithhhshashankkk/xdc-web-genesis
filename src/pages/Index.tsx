@@ -54,13 +54,13 @@ const ImageHoverSection = () => {
   const getTransform = () => {
     switch (animationPhase) {
       case 0:
-        return "translateY(100%) scale(0.8)";
+        return "translate3d(0, 100%, 0) scale3d(0.8, 0.8, 1)";
       case 1:
-        return "translateY(0%) scale(1)";
+        return "translate3d(0, 0%, 0) scale3d(1, 1, 1)";
       case 2:
-        return "translateY(0%) scale(1)";
+        return "translate3d(0, 0%, 0) scale3d(1, 1, 1)";
       default:
-        return "translateY(100%) scale(0.8)";
+        return "translate3d(0, 100%, 0) scale3d(0.8, 0.8, 1)";
     }
   };
 
