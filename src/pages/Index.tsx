@@ -75,13 +75,16 @@ const ImageHoverSection = () => {
       {/* Main Image Container */}
       <div className="relative w-full h-full group cursor-pointer">
         <div
-          className="absolute inset-0 transition-all duration-[2000ms] ease-out"
+          className="absolute inset-0"
           style={{
             clipPath: getClipPath(),
             transform: getTransform(),
             willChange: "clip-path, transform",
             backfaceVisibility: "hidden",
             perspective: "1000px",
+            transition:
+              "clip-path 1200ms cubic-bezier(0.4, 0, 0.2, 1), transform 1200ms cubic-bezier(0.4, 0, 0.2, 1)",
+            transformOrigin: "center bottom",
           }}
         >
           <img
