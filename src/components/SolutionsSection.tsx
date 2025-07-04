@@ -109,10 +109,13 @@ const TradeFinanceSlide = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button
                 size="lg"
-                className="bg-gradient-primary hover:shadow-glow transition-all duration-300 group border border-primary/30"
+                className="bg-transparent border border-white/20 hover:border-primary hover:bg-gradient-primary hover:shadow-glow transition-all duration-300 group relative overflow-hidden"
               >
-                <ArrowRight className="mr-2 w-4 h-4" />
-                Explore TradeFi
+                <span className="relative z-10 flex items-center gap-3">
+                  <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-2" />
+                  <span>Explore TradeFi</span>
+                  <ArrowRight className="w-4 h-4 opacity-0 -translate-x-6 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+                </span>
               </Button>
               <Button
                 variant="outline"
