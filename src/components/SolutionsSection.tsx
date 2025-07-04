@@ -43,29 +43,35 @@ const SolutionsSection = () => {
         {/* Solutions Grid */}
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {solutions.map((solution, index) => (
-            <Card key={index} className="bg-card border-border hover:border-primary/30 transition-all duration-300 group hover:shadow-elegant">
-              <CardHeader className="text-center pb-6">
-                <div className="mx-auto mb-6 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <solution.icon className="w-8 h-8 text-primary" />
+            <Card key={index} className="bg-card border-border hover:border-primary/50 transition-all duration-500 group hover:shadow-glow transform hover:-translate-y-2 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <CardHeader className="text-center pb-6 relative z-10">
+                <div className="mx-auto mb-6 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-500 relative overflow-hidden">
+                  <solution.icon className="w-8 h-8 text-primary relative z-10" />
+                  <div className="absolute inset-0 bg-primary/20 transform scale-0 group-hover:scale-100 transition-transform duration-500 rounded-full"></div>
                 </div>
-                <CardTitle className="text-xl md:text-2xl font-semibold text-foreground">
+                <CardTitle className="text-xl md:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
                   {solution.title}
                 </CardTitle>
               </CardHeader>
               
-              <CardContent className="space-y-6">
-                <p className="text-muted-foreground leading-relaxed">
+              <CardContent className="space-y-6 relative z-10">
+                <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">
                   {solution.description}
                 </p>
                 
                 <Button 
                   variant="outline" 
-                  className="w-full group"
+                  className="w-full group/btn relative overflow-hidden"
                   asChild
                 >
                   <a href={solution.href}>
-                    {solution.ctaText}
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      {solution.ctaText}
+                      <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover/btn:translate-x-2" />
+                    </span>
+                    <div className="absolute inset-0 bg-primary/10 transform -translate-x-full group-hover/btn:translate-x-0 transition-transform duration-500"></div>
                   </a>
                 </Button>
               </CardContent>

@@ -22,13 +22,14 @@ const PartnersSection = () => {
           {partners.map((partner, index) => (
             <div 
               key={index}
-              className="group flex items-center justify-center w-full h-16 bg-card border border-border rounded-lg hover:border-primary/30 transition-all duration-300 hover:shadow-elegant"
+              className="group flex items-center justify-center w-full h-16 bg-card border border-border rounded-lg hover:border-primary/50 transition-all duration-500 hover:shadow-glow transform hover:-translate-y-1 relative overflow-hidden cursor-pointer"
             >
-              <div className="text-center">
-                <div className="text-xl font-bold text-primary mb-1 group-hover:scale-110 transition-transform">
+              <div className="absolute inset-0 bg-primary/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
+              <div className="text-center relative z-10">
+                <div className="text-xl font-bold text-primary mb-1 group-hover:scale-125 transition-all duration-300 group-hover:text-primary-glow">
                   {partner.logo}
                 </div>
-                <div className="text-xs text-muted-foreground">
+                <div className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                   {partner.name}
                 </div>
               </div>

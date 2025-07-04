@@ -75,17 +75,18 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
-                <Button
-                  key={index}
-                  variant="ghost"
-                  size="icon"
-                  asChild
-                  className="hover:text-primary hover:bg-primary/10"
-                >
-                  <a href={social.href} aria-label={social.label}>
-                    <social.icon className="w-5 h-5" />
-                  </a>
-                </Button>
+              <Button
+                key={index}
+                variant="ghost"
+                size="icon"
+                asChild
+                className="hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110 hover:shadow-glow relative group overflow-hidden"
+              >
+                <a href={social.href} aria-label={social.label}>
+                  <social.icon className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-primary/20 rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                </a>
+              </Button>
               ))}
             </div>
           </div>

@@ -48,21 +48,22 @@ const Header = () => {
           <nav className="hidden lg:flex items-center space-x-8">
             {navigationItems.map((item, index) => (
               <div key={index} className="relative group">
-                <button className="flex items-center space-x-1 text-foreground hover:text-primary transition-colors">
+                <button className="flex items-center space-x-1 text-foreground/80 hover:text-primary transition-all duration-300 font-medium">
                   <span>{item.label}</span>
-                  {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
+                  {item.hasDropdown && <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />}
                 </button>
                 
                 {item.hasDropdown && (
-                  <div className="absolute top-full left-0 mt-2 w-48 bg-xdc-dark-elevated border border-border rounded-lg shadow-elegant opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <div className="py-2">
+                  <div className="absolute top-full left-0 mt-3 w-56 bg-background/95 backdrop-blur-sm border border-primary/20 rounded-lg shadow-glow opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                    <div className="py-3">
                       {item.items?.map((subItem, subIndex) => (
                         <a 
                           key={subIndex}
                           href="#"
-                          className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-muted/50 transition-colors"
+                          className="block px-4 py-3 text-sm text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all duration-200 relative overflow-hidden group/item"
                         >
-                          {subItem}
+                          <span className="relative z-10">{subItem}</span>
+                          <div className="absolute inset-0 bg-primary/5 transform -translate-x-full group-hover/item:translate-x-0 transition-transform duration-300"></div>
                         </a>
                       ))}
                     </div>

@@ -25,13 +25,16 @@ const HeroSection = () => {
             Discover a low cost, fast and reliable blockchain built for everyone — a network of possibilities.
           </p>
           
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-            <Button variant="hero" size="xl" className="group">
-              Get started with XDC
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Button>
-          </div>
+           {/* CTA Buttons */}
+           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-12">
+             <Button variant="hero" size="xl" className="group relative overflow-hidden">
+               <span className="relative z-10 flex items-center gap-3">
+                 Get started with XDC
+                 <ArrowRight className="w-5 h-5 transition-all duration-300 group-hover:translate-x-1" />
+               </span>
+               <div className="absolute inset-0 bg-primary/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+             </Button>
+           </div>
           
           {/* Additional info */}
           <div className="pt-12 text-center">
@@ -39,12 +42,14 @@ const HeroSection = () => {
               XDC Network is an enterprise-grade, open-source blockchain protocol. An EVM-compatible chain with smart contract capabilities, it is uniquely suited to revolutionize, decentralize, and liquify the trade finance industry through the tokenization of real-world assets and financial instruments.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button variant="outline" size="lg">
-                Explore the Network
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <Button variant="outline" size="lg" className="group relative overflow-hidden">
+                <span className="relative z-10">Explore the Network</span>
+                <div className="absolute inset-0 bg-primary/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
               </Button>
-              <Button variant="link" className="text-primary">
-                What is a blockchain?
+              <Button variant="link" className="text-primary relative group">
+                <span className="relative">What is a blockchain?</span>
+                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
               </Button>
             </div>
           </div>
