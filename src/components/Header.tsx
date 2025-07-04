@@ -6,6 +6,49 @@ import { Input } from "@/components/ui/input";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isAtTop, setIsAtTop] = useState(true);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          const heroSectionHeight = window.innerHeight; // Approximate hero section height
+
+          // Check if we're at the very top
+          setIsAtTop(currentScrollY < 10);
+
+          // If we're within the hero section, keep header visible
+          if (currentScrollY <= heroSectionHeight) {
+            setIsVisible(true);
+          } else {
+            // Past hero section - show/hide based on scroll direction
+            if (currentScrollY > lastScrollY) {
+              // Scrolling down - hide header
+              setIsVisible(false);
+            } else {
+              // Scrolling up - show header
+              setIsVisible(true);
+            }
+          }
+
+          setLastScrollY(currentScrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
 
   const navigationItems = [
     {
