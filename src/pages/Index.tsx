@@ -7,51 +7,131 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Download, BookOpen } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-// Image Hover Animation Section
+// Full-Screen Image Section with Triangular Slide Animation
 const ImageHoverSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [animationPhase, setAnimationPhase] = useState(0); // 0: hidden, 1: triangle, 2: full
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+
+            // Start triangle animation immediately
+            setTimeout(() => setAnimationPhase(1), 100);
+
+            // Transition to full image after triangle reaches 30%
+            setTimeout(() => setAnimationPhase(2), 1500);
+          }
+        });
+      },
+      { threshold: 0.3 },
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const getClipPath = () => {
+    switch (animationPhase) {
+      case 0:
+        return "polygon(50% 100%, 50% 100%, 50% 100%)"; // Hidden
+      case 1:
+        return "polygon(0% 100%, 50% 0%, 100% 100%)"; // Triangle
+      case 2:
+        return "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"; // Full rectangle
+      default:
+        return "polygon(50% 100%, 50% 100%, 50% 100%)";
+    }
+  };
+
+  const getTransform = () => {
+    switch (animationPhase) {
+      case 0:
+        return "translateY(100%) scale(0.8)";
+      case 1:
+        return "translateY(0%) scale(1)";
+      case 2:
+        return "translateY(0%) scale(1)";
+      default:
+        return "translateY(100%) scale(0.8)";
+    }
+  };
+
   return (
-    <section className="py-20 bg-gradient-to-b from-background to-xdc-dark/20">
-      <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="relative group cursor-pointer">
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-xdc-cyan/10 to-primary/5 p-2">
-              <div className="relative overflow-hidden rounded-xl">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F175e07c0953248be8def67c5d8e27247%2F9dac1cf560d446aa83ae5d63cd9af7e2?format=webp&width=800"
-                  alt="XDC Network Technology"
-                  className="w-full h-[500px] object-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-110"
+    <section
+      ref={sectionRef}
+      className="relative h-screen w-full overflow-hidden bg-gradient-to-b from-xdc-dark/40 to-background"
+    >
+      {/* Main Image Container */}
+      <div className="relative w-full h-full group cursor-pointer">
+        <div
+          className="absolute inset-0 transition-all duration-[2000ms] ease-out"
+          style={{
+            clipPath: getClipPath(),
+            transform: getTransform(),
+          }}
+        >
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F175e07c0953248be8def67c5d8e27247%2F9dac1cf560d446aa83ae5d63cd9af7e2?format=webp&width=800"
+            alt="XDC Network Technology"
+            className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-110"
+          />
+
+          {/* Overlay Effects */}
+          <div className="absolute inset-0 bg-gradient-to-t from-xdc-cyan/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+
+          {/* Animated Border Glow */}
+          <div className="absolute inset-0 border-4 border-transparent group-hover:border-xdc-cyan/40 transition-all duration-500"></div>
+        </div>
+
+        {/* Floating Animation Elements */}
+        {animationPhase === 2 && (
+          <>
+            <div className="absolute top-1/4 right-1/4 opacity-0 group-hover:opacity-100 transition-all duration-700 delay-200 transform translate-x-8 group-hover:translate-x-0">
+              <div className="w-4 h-4 bg-xdc-cyan rounded-full animate-pulse shadow-glow"></div>
+            </div>
+            <div className="absolute bottom-1/3 left-1/4 opacity-0 group-hover:opacity-100 transition-all duration-700 delay-300 transform -translate-x-8 group-hover:translate-x-0">
+              <div className="w-3 h-3 bg-primary rounded-full animate-pulse shadow-glow"></div>
+            </div>
+            <div className="absolute top-1/3 left-1/3 opacity-0 group-hover:opacity-100 transition-all duration-700 delay-400 transform translate-y-8 group-hover:translate-y-0">
+              <div className="w-2 h-2 bg-xdc-cyan rounded-full animate-pulse shadow-glow"></div>
+            </div>
+
+            {/* Center Play Button */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+              <div className="w-24 h-24 bg-xdc-cyan/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-xdc-cyan/40 transform scale-75 group-hover:scale-100 transition-all duration-300 shadow-glow">
+                <Play
+                  className="w-10 h-10 text-xdc-cyan ml-1"
+                  fill="currentColor"
                 />
-
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-xdc-cyan/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-
-                {/* Animated Border Glow */}
-                <div className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-xdc-cyan/50 transition-all duration-500"></div>
-
-                {/* Floating Elements */}
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-700 delay-200 transform translate-x-4 group-hover:translate-x-0">
-                  <div className="w-3 h-3 bg-xdc-cyan rounded-full animate-pulse"></div>
-                </div>
-                <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-700 delay-300 transform -translate-x-4 group-hover:translate-x-0">
-                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                </div>
-
-                {/* Center Play Button */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                  <div className="w-20 h-20 bg-xdc-cyan/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-xdc-cyan/30 transform scale-75 group-hover:scale-100 transition-all duration-300">
-                    <Play
-                      className="w-8 h-8 text-xdc-cyan ml-1"
-                      fill="currentColor"
-                    />
-                  </div>
-                </div>
               </div>
+            </div>
+          </>
+        )}
 
-              {/* Outer Glow Effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-xdc-cyan/20 via-primary/10 to-xdc-cyan/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl -z-10"></div>
+        {/* Progress Indicator */}
+        {isVisible && animationPhase < 2 && (
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+            <div className="flex items-center space-x-2 bg-black/50 backdrop-blur-sm rounded-full px-4 py-2">
+              <div className="w-2 h-2 bg-xdc-cyan rounded-full animate-pulse"></div>
+              <span className="text-white text-sm font-medium">
+                {animationPhase === 1 ? "Expanding..." : "Loading..."}
+              </span>
             </div>
           </div>
-        </div>
+        )}
+
+        {/* Outer Glow Effect */}
+        {animationPhase === 2 && (
+          <div className="absolute -inset-4 bg-gradient-to-r from-xdc-cyan/20 via-primary/10 to-xdc-cyan/20 opacity-0 group-hover:opacity-100 transition-all duration-500 blur-2xl -z-10"></div>
+        )}
       </div>
     </section>
   );
