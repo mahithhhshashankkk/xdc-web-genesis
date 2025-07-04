@@ -1,7 +1,34 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, Component, ReactNode } from "react";
 import { Sphere } from "@react-three/drei";
 import * as THREE from "three";
+
+// Error boundary for Three.js components
+class ThreeErrorBoundary extends Component<
+  { children: ReactNode },
+  { hasError: boolean }
+> {
+  constructor(props: { children: ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error, errorInfo: any) {
+    console.warn("Three.js error caught:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return null; // Render nothing on error to prevent app crash
+    }
+
+    return this.props.children;
+  }
+}
 
 // Animated particle field component
 function ParticleField() {
