@@ -132,34 +132,50 @@ const ImageHoverSection = () => {
         {animationPhase === 2 && (
           <>
             <div
-              className="absolute top-1/4 right-1/4 opacity-0 group-hover:opacity-100 transition-all duration-700 delay-200 transform translate-x-8 group-hover:translate-x-0"
-              style={{ willChange: "opacity, transform" }}
+              className="absolute top-1/4 right-1/4 opacity-0 group-hover:opacity-100 transform translate-x-8 group-hover:translate-x-0"
+              style={{
+                willChange: "opacity, transform",
+                transition:
+                  "opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 100ms, transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 100ms",
+              }}
             >
               <div className="w-4 h-4 bg-xdc-cyan rounded-full animate-pulse shadow-glow"></div>
             </div>
             <div
-              className="absolute bottom-1/3 left-1/4 opacity-0 group-hover:opacity-100 transition-all duration-700 delay-300 transform -translate-x-8 group-hover:translate-x-0"
-              style={{ willChange: "opacity, transform" }}
+              className="absolute bottom-1/3 left-1/4 opacity-0 group-hover:opacity-100 transform -translate-x-8 group-hover:translate-x-0"
+              style={{
+                willChange: "opacity, transform",
+                transition:
+                  "opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 150ms, transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 150ms",
+              }}
             >
               <div className="w-3 h-3 bg-primary rounded-full animate-pulse shadow-glow"></div>
             </div>
             <div
-              className="absolute top-1/3 left-1/3 opacity-0 group-hover:opacity-100 transition-all duration-700 delay-400 transform translate-y-8 group-hover:translate-y-0"
-              style={{ willChange: "opacity, transform" }}
+              className="absolute top-1/3 left-1/3 opacity-0 group-hover:opacity-100 transform translate-y-8 group-hover:translate-y-0"
+              style={{
+                willChange: "opacity, transform",
+                transition:
+                  "opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 200ms, transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 200ms",
+              }}
             >
               <div className="w-2 h-2 bg-xdc-cyan rounded-full animate-pulse shadow-glow"></div>
             </div>
 
             {/* Center Play Button */}
             <div
-              className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100"
-              style={{ willChange: "opacity" }}
+              className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100"
+              style={{
+                willChange: "opacity",
+                transition: "opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 50ms",
+              }}
             >
               <div
-                className="w-24 h-24 bg-xdc-cyan/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-xdc-cyan/40 transform scale-75 group-hover:scale-100 transition-all duration-300 shadow-glow"
+                className="w-24 h-24 bg-xdc-cyan/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-xdc-cyan/40 transform scale-75 group-hover:scale-100 shadow-glow"
                 style={{
                   willChange: "transform",
                   backfaceVisibility: "hidden",
+                  transition: "transform 300ms cubic-bezier(0.4, 0, 0.2, 1)",
                 }}
               >
                 <Play
