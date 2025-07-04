@@ -34,7 +34,7 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-12">
             <Button
               size="xl"
-              className="bg-transparent border border-white/20 hover:border-xdc-cyan hover:bg-gradient-primary hover:shadow-glow transition-all duration-300 group relative overflow-hidden text-xdc-cyan hover:text-white px-8 py-4 text-lg"
+              className="bg-transparent border border-white/20 hover:border-xdc-cyan hover:bg-gradient-primary hover:shadow-glow transition-all duration-300 group relative overflow-hidden text-xdc-cyan hover:text-black px-8 py-4 text-lg"
             >
               <span className="relative z-10 flex items-center gap-4">
                 <ArrowRight className="w-5 h-5 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-2" />
