@@ -76,12 +76,20 @@ const ImageHoverSection = () => {
           style={{
             clipPath: getClipPath(),
             transform: getTransform(),
+            willChange: "clip-path, transform",
+            backfaceVisibility: "hidden",
+            perspective: "1000px",
           }}
         >
           <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F175e07c0953248be8def67c5d8e27247%2F9dac1cf560d446aa83ae5d63cd9af7e2?format=webp&width=800"
+            src="https://cdn.builder.io/api/v1/image/assets%2F175e07c0953248be8def67c5d8e27247%2F9dac1cf560d446aa83ae5d63cd9af7e2?format=webp&width=1920&quality=90"
             alt="XDC Network Technology"
             className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-110"
+            style={{
+              willChange: "transform, filter",
+              backfaceVisibility: "hidden",
+              transform: "translate3d(0, 0, 0)",
+            }}
           />
 
           {/* Overlay Effects */}
