@@ -189,8 +189,17 @@ const ImageHoverSection = () => {
 
         {/* Progress Indicator */}
         {isVisible && animationPhase < 2 && (
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-            <div className="flex items-center space-x-2 bg-black/50 backdrop-blur-sm rounded-full px-4 py-2">
+          <div
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            style={{
+              opacity: animationPhase > 0 ? 1 : 0,
+              transform: `translateX(-50%) translateY(${animationPhase > 0 ? "0" : "20px"})`,
+              transition:
+                "opacity 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+              willChange: "opacity, transform",
+            }}
+          >
+            <div className="flex items-center space-x-2 bg-black/50 backdrop-blur-sm rounded-full px-4 py-2 border border-xdc-cyan/20">
               <div className="w-2 h-2 bg-xdc-cyan rounded-full animate-pulse"></div>
               <span className="text-white text-sm font-medium">
                 {animationPhase === 1 ? "Expanding..." : "Loading..."}
