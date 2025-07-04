@@ -182,42 +182,44 @@ function NetworkLines() {
 export default function HeroBackground3D() {
   return (
     <div className="absolute inset-0 opacity-40">
-      <Canvas
-        camera={{ position: [0, 0, 5], fov: 75 }}
-        gl={{ antialias: true, alpha: true }}
-        style={{ background: "transparent" }}
-      >
-        <ambientLight intensity={0.3} />
-        <pointLight position={[10, 10, 10]} intensity={1} color="#00ffff" />
-        <pointLight
-          position={[-10, -10, -10]}
-          intensity={0.5}
-          color="#0088ff"
-        />
-
-        <ParticleField />
-        <NetworkLines />
-        <FloatingGeometry />
-
-        {/* Additional floating spheres */}
-        <Sphere position={[-3, 2, -1]} args={[0.3, 32, 32]}>
-          <meshStandardMaterial
-            color="#00ffff"
-            wireframe
-            transparent
-            opacity={0.2}
-          />
-        </Sphere>
-
-        <Sphere position={[2, -2, -3]} args={[0.2, 32, 32]}>
-          <meshStandardMaterial
+      <ThreeErrorBoundary>
+        <Canvas
+          camera={{ position: [0, 0, 5], fov: 75 }}
+          gl={{ antialias: true, alpha: true }}
+          style={{ background: "transparent" }}
+        >
+          <ambientLight intensity={0.3} />
+          <pointLight position={[10, 10, 10]} intensity={1} color="#00ffff" />
+          <pointLight
+            position={[-10, -10, -10]}
+            intensity={0.5}
             color="#0088ff"
-            wireframe
-            transparent
-            opacity={0.3}
           />
-        </Sphere>
-      </Canvas>
+
+          <ParticleField />
+          <NetworkLines />
+          <FloatingGeometry />
+
+          {/* Additional floating spheres */}
+          <Sphere position={[-3, 2, -1]} args={[0.3, 32, 32]}>
+            <meshStandardMaterial
+              color="#00ffff"
+              wireframe
+              transparent
+              opacity={0.2}
+            />
+          </Sphere>
+
+          <Sphere position={[2, -2, -3]} args={[0.2, 32, 32]}>
+            <meshStandardMaterial
+              color="#0088ff"
+              wireframe
+              transparent
+              opacity={0.3}
+            />
+          </Sphere>
+        </Canvas>
+      </ThreeErrorBoundary>
     </div>
   );
 }
