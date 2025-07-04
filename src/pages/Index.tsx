@@ -20,15 +20,18 @@ const ImageHoverSection = () => {
           if (entry.isIntersecting) {
             setIsVisible(true);
 
-            // Start triangle animation immediately
-            setTimeout(() => setAnimationPhase(1), 100);
+            // Use requestAnimationFrame for smoother timing coordination
+            requestAnimationFrame(() => {
+              // Start triangle animation with optimal timing
+              setTimeout(() => setAnimationPhase(1), 50);
 
-            // Transition to full image after triangle reaches 30%
-            setTimeout(() => setAnimationPhase(2), 1500);
+              // Transition to full image with liquid timing
+              setTimeout(() => setAnimationPhase(2), 1200);
+            });
           }
         });
       },
-      { threshold: 0.001 },
+      { threshold: 0.001, rootMargin: "50px" },
     );
 
     if (sectionRef.current) {
