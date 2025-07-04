@@ -110,10 +110,22 @@ const ImageHoverSection = () => {
           />
 
           {/* Overlay Effects */}
-          <div className="absolute inset-0 bg-gradient-to-t from-xdc-cyan/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-xdc-cyan/20 via-transparent to-transparent opacity-0 group-hover:opacity-100"
+            style={{
+              transition: "opacity 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+              willChange: "opacity",
+            }}
+          ></div>
 
           {/* Animated Border Glow */}
-          <div className="absolute inset-0 border-4 border-transparent group-hover:border-xdc-cyan/40 transition-all duration-500"></div>
+          <div
+            className="absolute inset-0 border-4 border-transparent group-hover:border-xdc-cyan/40"
+            style={{
+              transition: "border-color 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+              willChange: "border-color",
+            }}
+          ></div>
         </div>
 
         {/* Floating Animation Elements */}
