@@ -1,6 +1,5 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef, useMemo, Component, ReactNode } from "react";
-import { Sphere } from "@react-three/drei";
 import * as THREE from "three";
 
 // Error boundary for Three.js components
