@@ -5,6 +5,7 @@ import PartnersSection from "@/components/PartnersSection";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Download, BookOpen } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 // Image Hover Animation Section
 const ImageHoverSection = () => {
