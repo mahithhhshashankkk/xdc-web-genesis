@@ -11,32 +11,32 @@ const Header = () => {
     {
       label: "Network",
       hasDropdown: true,
-      items: ["Explorer", "Validators", "Network Stats"]
+      items: ["Explorer", "Validators", "Network Stats"],
     },
     {
-      label: "Solutions", 
+      label: "Solutions",
       hasDropdown: true,
-      items: ["Enterprise", "Trade Finance", "DeFi"]
+      items: ["Enterprise", "Trade Finance", "DeFi"],
     },
     {
       label: "Build on XDC",
-      hasDropdown: true, 
-      items: ["Developer Tools", "Documentation", "GitHub"]
+      hasDropdown: true,
+      items: ["Developer Tools", "Documentation", "GitHub"],
     },
     {
       label: "Resources",
       hasDropdown: true,
-      items: ["Whitepaper", "Research", "Blog"]
+      items: ["Whitepaper", "Research", "Blog"],
     },
     {
       label: "Community",
       hasDropdown: true,
-      items: ["Discord", "Telegram", "Twitter"]
-    }
+      items: ["Discord", "Telegram", "Twitter"],
+    },
   ];
 
   return (
-    <header className="relative z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -50,14 +50,16 @@ const Header = () => {
               <div key={index} className="relative group">
                 <button className="flex items-center space-x-1 text-foreground/80 hover:text-primary transition-all duration-300 font-medium">
                   <span>{item.label}</span>
-                  {item.hasDropdown && <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />}
+                  {item.hasDropdown && (
+                    <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
+                  )}
                 </button>
-                
+
                 {item.hasDropdown && (
                   <div className="absolute top-full left-0 mt-3 w-56 bg-background/95 backdrop-blur-sm border border-primary/20 rounded-lg shadow-glow opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                     <div className="py-3">
                       {item.items?.map((subItem, subIndex) => (
-                        <a 
+                        <a
                           key={subIndex}
                           href="#"
                           className="block px-4 py-3 text-sm text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all duration-200 relative overflow-hidden group/item"
@@ -94,7 +96,11 @@ const Header = () => {
               className="lg:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
             </Button>
           </div>
         </div>
@@ -114,7 +120,7 @@ const Header = () => {
                 />
                 <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               </div>
-              
+
               {/* Mobile Navigation */}
               {navigationItems.map((item, index) => (
                 <div key={index} className="space-y-2">
@@ -125,7 +131,7 @@ const Header = () => {
                   {item.hasDropdown && (
                     <div className="pl-4 space-y-2">
                       {item.items?.map((subItem, subIndex) => (
-                        <a 
+                        <a
                           key={subIndex}
                           href="#"
                           className="block text-sm text-muted-foreground hover:text-primary transition-colors"
