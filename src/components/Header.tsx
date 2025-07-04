@@ -79,7 +79,17 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+    <header
+      className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border"
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: `translate3d(0, ${isVisible ? "0" : "-100%"}, 0)`,
+        transition:
+          "opacity 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+        willChange: "opacity, transform",
+        backfaceVisibility: "hidden",
+      }}
+    >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
