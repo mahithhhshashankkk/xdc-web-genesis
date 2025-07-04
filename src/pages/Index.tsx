@@ -28,7 +28,7 @@ const ImageHoverSection = () => {
           }
         });
       },
-      { threshold: 0.3 },
+      { threshold: 0.001 },
     );
 
     if (sectionRef.current) {
