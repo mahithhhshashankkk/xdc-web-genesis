@@ -200,23 +200,25 @@ export default function HeroBackground3D() {
           <FloatingGeometry />
 
           {/* Additional floating spheres */}
-          <Sphere position={[-3, 2, -1]} args={[0.3, 32, 32]}>
+          <mesh position={[-3, 2, -1]}>
+            <sphereGeometry args={[0.3, 32, 32]} />
             <meshStandardMaterial
               color="#00ffff"
               wireframe
               transparent
               opacity={0.2}
             />
-          </Sphere>
+          </mesh>
 
-          <Sphere position={[2, -2, -3]} args={[0.2, 32, 32]}>
+          <mesh position={[2, -2, -3]}>
+            <sphereGeometry args={[0.2, 32, 32]} />
             <meshStandardMaterial
               color="#0088ff"
               wireframe
               transparent
               opacity={0.3}
             />
-          </Sphere>
+          </mesh>
         </Canvas>
       </ThreeErrorBoundary>
     </div>
