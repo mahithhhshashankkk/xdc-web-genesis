@@ -90,11 +90,22 @@ const ImageHoverSection = () => {
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F175e07c0953248be8def67c5d8e27247%2F9dac1cf560d446aa83ae5d63cd9af7e2?format=webp&width=1920&quality=90"
             alt="XDC Network Technology"
-            className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-110"
+            className="w-full h-full object-cover group-hover:brightness-110"
             style={{
               willChange: "transform, filter",
               backfaceVisibility: "hidden",
-              transform: "translate3d(0, 0, 0)",
+              transform: "translate3d(0, 0, 0) scale3d(1, 1, 1)",
+              transition:
+                "transform 300ms cubic-bezier(0.4, 0, 0.2, 1), filter 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+              transformOrigin: "center center",
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.transform =
+                "translate3d(0, 0, 0) scale3d(1.05, 1.05, 1)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform =
+                "translate3d(0, 0, 0) scale3d(1, 1, 1)";
             }}
           />
 
