@@ -201,11 +201,11 @@ const ImageHoverSection = () => {
 
             // Use requestAnimationFrame for smoother timing coordination
             requestAnimationFrame(() => {
-              // Start triangle animation with optimal timing
-              setTimeout(() => setAnimationPhase(1), 50);
+              // Start semi-circular expansion with optimal timing
+              setTimeout(() => setAnimationPhase(1), 200);
 
-              // Transition to full image with liquid timing
-              setTimeout(() => setAnimationPhase(2), 1200);
+              // Transition to full image with smooth timing
+              setTimeout(() => setAnimationPhase(2), 1800);
             });
           }
         });
