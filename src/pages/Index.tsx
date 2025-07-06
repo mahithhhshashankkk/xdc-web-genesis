@@ -523,10 +523,13 @@ const Index = () => {
         <ImageHoverSection />
       </section>
       <section id="about">
-        <GetStartedSection />
+        <HealthEcologySection />
       </section>
       <section id="services">
         <SolutionsSection />
+      </section>
+      <section id="blog">
+        <BlogSection />
       </section>
       <section id="contact">
         <SocialMediaSection />
