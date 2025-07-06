@@ -123,10 +123,16 @@ const SocialMediaSection = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <AnimatedText delay={0} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            <h2
+              className="text-4xl md:text-5xl font-bold text-foreground mb-6"
+              style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}
+            >
               Connect with <span className="text-xdc-cyan">XDC Network</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p
+              className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+              style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}
+            >
               Follow us across all platforms to stay updated with the latest
               developments, insights, and community discussions.
             </p>
