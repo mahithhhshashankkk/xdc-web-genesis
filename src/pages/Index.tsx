@@ -505,11 +505,21 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <HeroSection />
-      <ImageHoverSection />
-      <GetStartedSection />
-      <SolutionsSection />
-      <SocialMediaSection />
+      <section id="hero">
+        <HeroSection />
+      </section>
+      <section id="image-section">
+        <ImageHoverSection />
+      </section>
+      <section id="about">
+        <GetStartedSection />
+      </section>
+      <section id="services">
+        <SolutionsSection />
+      </section>
+      <section id="contact">
+        <SocialMediaSection />
+      </section>
       <PartnersSection />
       <Footer />
     </div>
