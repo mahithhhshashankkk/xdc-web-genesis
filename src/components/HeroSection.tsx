@@ -69,10 +69,10 @@ const HeroSection = () => {
               className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-light text-foreground leading-tight mb-8"
               style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}
             >
-              Success Depends on
+              Pioneering Health
               <br />
               <span className="text-primary bg-gradient-primary bg-clip-text text-transparent font-normal">
-                Your Network
+                Innovation
               </span>
             </h1>
           </AnimatedHeroText>
@@ -83,8 +83,9 @@ const HeroSection = () => {
               className="text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12"
               style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}
             >
-              Discover a low cost, fast and reliable blockchain built for
-              everyone — a network of possibilities.
+              Leadership in the health industry through innovation,
+              partnerships, and sustainability, empowering virtuous producers to
+              achieve global recognition and quality.
             </p>
           </AnimatedHeroText>
 
@@ -102,7 +103,7 @@ const HeroSection = () => {
               >
                 <span className="relative z-10 flex items-center gap-4">
                   <ArrowRight className="w-5 h-5 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-2" />
-                  <span>Get started with XDC</span>
+                  <span>Explore Our Services</span>
                   <ArrowRight className="w-5 h-5 opacity-0 -translate-x-6 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
                 </span>
               </Button>
