@@ -271,7 +271,7 @@ const TradeFinanceSlide = () => {
 // Full-Screen Developers & Creators Slide
 const DevelopersSlide = () => {
   return (
-    <section className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-primary/5 via-background to-xdc-dark/5 relative overflow-hidden">
+    <section className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-primary/8 via-background to-primary/3 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-1/5 left-1/5 w-2 h-2 bg-xdc-cyan rounded-full animate-pulse delay-300"></div>
