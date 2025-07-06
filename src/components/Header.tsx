@@ -214,20 +214,33 @@ const Header = () => {
               {/* Mobile Navigation */}
               {navigationItems.map((item, index) => (
                 <div key={index} className="space-y-2">
-                  <button className="flex items-center justify-between w-full text-left text-foreground hover:text-primary transition-colors">
+                  <button
+                    className="flex items-center justify-between w-full text-left text-foreground hover:text-primary transition-colors"
+                    onClick={() => {
+                      if (item.sectionId) {
+                        scrollToSection(item.sectionId);
+                        setIsMenuOpen(false);
+                      }
+                    }}
+                  >
                     <span>{item.label}</span>
                     {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
                   </button>
                   {item.hasDropdown && (
                     <div className="pl-4 space-y-2">
                       {item.items?.map((subItem, subIndex) => (
-                        <a
+                        <button
                           key={subIndex}
-                          href="#"
-                          className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                          onClick={() => {
+                            if (item.sectionId) {
+                              scrollToSection(item.sectionId);
+                              setIsMenuOpen(false);
+                            }
+                          }}
+                          className="block w-full text-left text-sm text-muted-foreground hover:text-primary transition-colors"
                         >
                           {subItem}
-                        </a>
+                        </button>
                       ))}
                     </div>
                   )}
