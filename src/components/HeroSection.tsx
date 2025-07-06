@@ -71,9 +71,7 @@ const HeroSection = () => {
             >
               Pioneering Health
               <br />
-              <span className="text-primary bg-gradient-primary bg-clip-text text-transparent font-normal">
-                Innovation
-              </span>
+              <span className="text-primary font-normal">Innovation</span>
             </h1>
           </AnimatedHeroText>
 
