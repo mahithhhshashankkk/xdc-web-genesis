@@ -110,7 +110,7 @@ const AnimatedIcon = ({ icon: Icon, delay = 0, className = "" }) => {
 // Full-Screen Enterprise Slide
 const EnterpriseSlide = () => {
   return (
-    <section className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-background via-xdc-dark/10 to-background relative overflow-hidden">
+    <section className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-background via-primary/5 to-background relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-xdc-cyan rounded-full animate-pulse"></div>
