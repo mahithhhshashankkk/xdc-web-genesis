@@ -164,7 +164,7 @@ const EnterpriseSlide = () => {
                 >
                   <span className="relative z-10 flex items-center gap-3">
                     <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-2" />
-                    <span>Explore the Network</span>
+                    <span>Explore Farm Consulting</span>
                     <ArrowRight className="w-4 h-4 opacity-0 -translate-x-6 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
                   </span>
                 </Button>
@@ -177,7 +177,7 @@ const EnterpriseSlide = () => {
                   }}
                 >
                   <Diamond className="mr-2 w-4 h-4" />
-                  What is Blockchain?
+                  Learn About Organic Farming
                 </Button>
               </div>
             </AnimatedText>
