@@ -131,7 +131,12 @@ const Header = () => {
           <nav className="hidden lg:flex items-center space-x-8">
             {navigationItems.map((item, index) => (
               <div key={index} className="relative group">
-                <button className="flex items-center space-x-1 text-foreground/80 hover:text-primary transition-all duration-300 font-medium">
+                <button
+                  className="flex items-center space-x-1 text-foreground/80 hover:text-primary transition-all duration-300 font-medium"
+                  onClick={() =>
+                    item.sectionId && scrollToSection(item.sectionId)
+                  }
+                >
                   <span>{item.label}</span>
                   {item.hasDropdown && (
                     <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
