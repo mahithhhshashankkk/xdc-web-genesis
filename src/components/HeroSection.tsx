@@ -52,7 +52,7 @@ const AnimatedHeroText = ({
 
 const HeroSection = () => {
   return (
-    <section className="relative h-screen flex items-center justify-center bg-gradient-hero overflow-hidden pt-20">
+    <section className="relative h-screen flex items-center justify-center bg-gradient-hero overflow-hidden">
       {/* 3D Animated Background */}
       <HeroBackground3D />
 
@@ -61,7 +61,7 @@ const HeroSection = () => {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/3 rounded-full blur-3xl"></div>
 
-      <div className="container mx-auto px-6 text-center relative z-10 flex items-center justify-center min-h-[calc(100vh-5rem)]">
+      <div className="container mx-auto px-6 text-center relative z-10 flex items-center justify-center min-h-screen pt-32 pb-20">
         <div className="max-w-5xl mx-auto space-y-8">
           {/* Main Hero Text */}
           <AnimatedHeroText delay={300}>
