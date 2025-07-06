@@ -324,7 +324,7 @@ const DevelopersSlide = () => {
                 >
                   <span className="relative z-10 flex items-center gap-3">
                     <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-2" />
-                    <span>Start Creating with XDC</span>
+                    <span>Access Global Markets</span>
                     <ArrowRight className="w-4 h-4 opacity-0 -translate-x-6 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
                   </span>
                 </Button>
@@ -337,7 +337,7 @@ const DevelopersSlide = () => {
                   }}
                 >
                   <Code className="mr-2 w-4 h-4" />
-                  Documentation
+                  Strategic Partnerships
                 </Button>
               </div>
             </AnimatedText>
