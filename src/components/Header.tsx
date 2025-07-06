@@ -74,31 +74,37 @@ const Header = () => {
       label: "Home",
       hasDropdown: false,
       items: [],
+      sectionId: "hero",
     },
     {
       label: "Hedamo",
       hasDropdown: true,
       items: ["Organic Farms", "Health Reviews", "Transparency Labels"],
+      sectionId: "image-section",
     },
     {
       label: "Services",
       hasDropdown: true,
       items: ["Farm Consulting", "Health Reporting", "Global Market Access"],
+      sectionId: "services",
     },
     {
       label: "About",
       hasDropdown: true,
       items: ["Our Mission", "Team", "Innovation"],
+      sectionId: "about",
     },
     {
       label: "Blog",
       hasDropdown: false,
       items: [],
+      sectionId: "blog",
     },
     {
       label: "Contact",
       hasDropdown: false,
       items: [],
+      sectionId: "contact",
     },
   ];
 
