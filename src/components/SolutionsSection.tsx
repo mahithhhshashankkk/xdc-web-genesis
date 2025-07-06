@@ -233,26 +233,35 @@ const TradeFinanceSlide = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button
-                size="lg"
-                className="bg-transparent border border-white/20 hover:border-primary hover:bg-gradient-primary hover:shadow-glow transition-all duration-300 group relative overflow-hidden text-primary hover:text-black"
-              >
-                <span className="relative z-10 flex items-center gap-3">
-                  <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-2" />
-                  <span>Explore TradeFi</span>
-                  <ArrowRight className="w-4 h-4 opacity-0 -translate-x-6 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
-                </span>
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-300 group"
-              >
-                <TrendingUp className="mr-2 w-4 h-4" />
-                Learn More
-              </Button>
-            </div>
+            <AnimatedText delay={600} direction="up">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button
+                  size="lg"
+                  className="bg-transparent border border-white/20 hover:border-primary hover:bg-gradient-primary hover:shadow-glow transition-all duration-300 group relative overflow-hidden text-primary hover:text-black hover:-translate-y-1"
+                  style={{
+                    transition:
+                      "transform 300ms cubic-bezier(0.4, 0, 0.2, 1), border-color 300ms cubic-bezier(0.4, 0, 0.2, 1), background 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+                  }}
+                >
+                  <span className="relative z-10 flex items-center gap-3">
+                    <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-2" />
+                    <span>Explore TradeFi</span>
+                    <ArrowRight className="w-4 h-4 opacity-0 -translate-x-6 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+                  </span>
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-300 group hover:-translate-y-1"
+                  style={{
+                    transition: "transform 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+                  }}
+                >
+                  <TrendingUp className="mr-2 w-4 h-4" />
+                  Learn More
+                </Button>
+              </div>
+            </AnimatedText>
           </div>
         </div>
       </div>
