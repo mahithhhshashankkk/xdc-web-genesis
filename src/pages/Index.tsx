@@ -415,13 +415,19 @@ const GetStartedSection = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <AnimatedText delay={0}>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              <h2
+                className="text-4xl md:text-5xl font-bold text-foreground mb-6"
+                style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}
+              >
                 Get Started with{" "}
                 <span className="text-xdc-cyan">XDC Network</span>
               </h2>
             </AnimatedText>
             <AnimatedText delay={200}>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              <p
+                className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+                style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}
+              >
                 Join the future of enterprise blockchain. Start building on XDC
                 Network today with our comprehensive developer tools and
                 resources.
