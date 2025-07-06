@@ -217,17 +217,16 @@ const TradeFinanceSlide = () => {
                 <div className="flex items-center gap-2 mb-4 justify-center lg:justify-start">
                   <Diamond className="w-3 h-3 text-primary" />
                   <span className="text-sm font-medium text-primary tracking-wider uppercase">
-                    Trade Finance
+                    Health Reporting
                   </span>
                 </div>
               </AnimatedText>
               <AnimatedText delay={400} direction="up">
                 <p className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-relaxed text-foreground font-light">
-                  XDC Network sets a benchmark for digitizing trade finance by
-                  enabling the tokenization of diverse trade finance instruments
-                  and assets. Transform traditional trading with
-                  blockchain-powered efficiency, transparency, and global
-                  accessibility.
+                  Offering comprehensive reporting and strategic guidance on
+                  product innovation, differentiation, and maintaining unique
+                  value propositions. We ensure complete transparency in health
+                  benefits and production methods for consumer trust.
                 </p>
               </AnimatedText>
             </div>
