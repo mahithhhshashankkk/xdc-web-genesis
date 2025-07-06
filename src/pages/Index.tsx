@@ -223,13 +223,13 @@ const ImageHoverSection = () => {
   const getClipPath = () => {
     switch (animationPhase) {
       case 0:
-        return "polygon(50% 100%, 50% 100%, 50% 100%)"; // Hidden
+        return "ellipse(15% 25% at 50% 100%)"; // Small semi-circle
       case 1:
-        return "polygon(0% 100%, 50% 0%, 100% 100%)"; // Triangle
+        return "ellipse(40% 60% at 50% 100%)"; // Medium semi-circle
       case 2:
-        return "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"; // Full rectangle
+        return "ellipse(100% 100% at 50% 50%)"; // Full circle/rectangle
       default:
-        return "polygon(50% 100%, 50% 100%, 50% 100%)";
+        return "ellipse(15% 25% at 50% 100%)";
     }
   };
 
