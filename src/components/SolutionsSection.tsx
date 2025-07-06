@@ -244,7 +244,7 @@ const TradeFinanceSlide = () => {
                 >
                   <span className="relative z-10 flex items-center gap-3">
                     <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-2" />
-                    <span>Explore TradeFi</span>
+                    <span>Explore Health Reporting</span>
                     <ArrowRight className="w-4 h-4 opacity-0 -translate-x-6 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
                   </span>
                 </Button>
@@ -257,7 +257,7 @@ const TradeFinanceSlide = () => {
                   }}
                 >
                   <TrendingUp className="mr-2 w-4 h-4" />
-                  Learn More
+                  View Our Labels
                 </Button>
               </div>
             </AnimatedText>
