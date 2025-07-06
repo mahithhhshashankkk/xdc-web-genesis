@@ -166,7 +166,12 @@ const SocialMediaSection = () => {
                           <platform.icon className="w-6 h-6 text-foreground group-hover:text-xdc-cyan transition-colors duration-300" />
                         )}
                       </div>
-                      <span className="text-sm font-medium text-foreground group-hover:text-xdc-cyan transition-colors duration-300">
+                      <span
+                        className="text-sm font-medium text-foreground group-hover:text-xdc-cyan transition-colors duration-300"
+                        style={{
+                          fontFamily: "ui-sans-serif, system-ui, sans-serif",
+                        }}
+                      >
                         {platform.name}
                       </span>
                     </div>
