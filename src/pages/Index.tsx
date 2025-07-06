@@ -396,105 +396,116 @@ const ImageHoverSection = () => {
   );
 };
 
-// Get Started Section
-const GetStartedSection = () => {
-  const steps = [
+// Altibbe Health Ecology Section
+const HealthEcologySection = () => {
+  const categories = [
     {
-      icon: Download,
-      title: "Download Wallet",
+      icon: "🌾",
+      title: "Agriculture Products",
       description:
-        "Get started with XDC by downloading a compatible wallet to store and manage your XDC tokens securely.",
+        "Sustainable farming practices and organic produce excellence",
     },
     {
-      icon: BookOpen,
-      title: "Learn the Basics",
+      icon: "🍎",
+      title: "Fruits & Vegetables",
       description:
-        "Understand XDC Network fundamentals, consensus mechanisms, and how to interact with the ecosystem.",
+        "Fresh, organic fruits and vegetables with transparency labels",
     },
     {
-      icon: Play,
-      title: "Start Building",
+      icon: "🥩",
+      title: "Meat, Seafood & Dairy",
+      description: "Premium quality animal products with health certifications",
+    },
+    {
+      icon: "👕",
+      title: "Fashion",
+      description: "Sustainable fashion with health-conscious materials",
+    },
+    {
+      icon: "💄",
+      title: "Beauty",
       description:
-        "Deploy your first smart contract or integrate XDC Network into your existing applications.",
+        "Natural beauty products with transparent ingredient sourcing",
+    },
+    {
+      icon: "🧘",
+      title: "Wellness",
+      description: "Holistic wellness products for mind, body, and spirit",
     },
   ];
 
   return (
     <section className="py-24 bg-gradient-to-b from-xdc-dark/20 to-background">
       <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div className="text-left mb-16">
             <AnimatedText delay={0}>
               <h2
                 className="text-4xl md:text-5xl font-bold text-foreground mb-6"
                 style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}
               >
-                Get Started with{" "}
-                <span className="text-xdc-cyan">XDC Network</span>
+                Altibbe Inc{" "}
+                <span className="text-xdc-cyan">Health Ecology</span>
               </h2>
             </AnimatedText>
             <AnimatedText delay={200}>
               <p
-                className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+                className="text-xl text-muted-foreground max-w-4xl leading-relaxed mb-8"
                 style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}
               >
-                Join the future of enterprise blockchain. Start building on XDC
-                Network today with our comprehensive developer tools and
-                resources.
+                Altibbe Inc. is redefining health and transparency in the
+                post-pandemic world. Rooted in innovation and timeless wisdom,
+                we empower consumers to make informed choices by ensuring
+                complete transparency in food and wellness products.
+              </p>
+              <p
+                className="text-lg text-muted-foreground max-w-4xl leading-relaxed"
+                style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}
+              >
+                Our mission "Health for Humanity" strives to create tools that
+                connect people with health-focused producers through sustainable
+                practices. From organic farms to modern techniques, we highlight
+                excellence in agriculture, livestock, and farm technology to
+                build a healthier, more transparent future.
               </p>
             </AnimatedText>
           </div>
 
-          {/* Steps Grid */}
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            {steps.map((step, index) => (
+          {/* Categories Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {categories.map((category, index) => (
               <AnimatedText
                 key={index}
-                delay={300 + index * 150}
+                delay={300 + index * 100}
                 direction="up"
               >
                 <div className="group relative">
-                  <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 hover:bg-card/80 transition-all duration-300 hover:shadow-glow hover:border-xdc-cyan/30">
-                    <div className="w-16 h-16 bg-gradient-to-br from-xdc-cyan/20 to-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <step.icon className="w-8 h-8 text-xdc-cyan" />
+                  <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 text-center hover:bg-card/80 transition-all duration-300 hover:shadow-glow hover:border-xdc-cyan/30 hover:-translate-y-2">
+                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                      {category.icon}
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-4">
-                      {step.title}
+                    <h3
+                      className="text-sm font-semibold text-foreground mb-2 leading-tight"
+                      style={{
+                        fontFamily: "ui-sans-serif, system-ui, sans-serif",
+                      }}
+                    >
+                      {category.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {step.description}
+                    <p
+                      className="text-xs text-muted-foreground leading-relaxed"
+                      style={{
+                        fontFamily: "ui-sans-serif, system-ui, sans-serif",
+                      }}
+                    >
+                      {category.description}
                     </p>
-                  </div>
-
-                  {/* Step Number */}
-                  <div className="absolute -top-3 -right-3 w-8 h-8 bg-xdc-cyan rounded-full flex items-center justify-center text-sm font-bold text-xdc-dark">
-                    {index + 1}
                   </div>
                 </div>
               </AnimatedText>
             ))}
           </div>
-
-          {/* CTA Buttons */}
-          <AnimatedText delay={750}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button
-                size="lg"
-                className="bg-gradient-primary hover:shadow-glow transition-all duration-300 group"
-              >
-                Start Building
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-xdc-cyan/30 hover:border-xdc-cyan hover:bg-xdc-cyan/10 transition-all duration-300"
-              >
-                View Documentation
-              </Button>
-            </div>
-          </AnimatedText>
         </div>
       </div>
     </section>
