@@ -136,17 +136,17 @@ const EnterpriseSlide = () => {
                 <div className="flex items-center gap-2 mb-4 justify-center lg:justify-start">
                   <Diamond className="w-3 h-3 text-xdc-cyan" />
                   <span className="text-sm font-medium text-xdc-cyan tracking-wider uppercase">
-                    Enterprise
+                    Farm Consulting
                   </span>
                 </div>
               </AnimatedText>
               <AnimatedText delay={400} direction="up">
                 <p className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-relaxed text-foreground font-light">
-                  XDC Network is an enterprise-grade, open-source blockchain
-                  protocol. An EVM-compatible chain with smart contract
-                  capabilities, it is uniquely suited to revolutionize,
-                  decentralize, and liquify the enterprise industry through the
-                  tokenization of real-world assets and business processes.
+                  Providing tailored strategies to help organic farms and food
+                  producers overcome challenges and seize opportunities. We
+                  empower sustainable agriculture through innovative consulting
+                  services that drive excellence in health-focused farming
+                  practices.
                 </p>
               </AnimatedText>
             </div>
