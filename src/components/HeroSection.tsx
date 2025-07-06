@@ -92,7 +92,7 @@ const HeroSection = () => {
             <div className="flex justify-center items-center">
               <Button
                 size="xl"
-                className="bg-transparent border border-white/20 hover:border-xdc-cyan hover:bg-gradient-primary hover:shadow-glow transition-all duration-300 group relative overflow-hidden text-xdc-cyan hover:text-black px-8 py-4 text-lg hover:-translate-y-1"
+                className="bg-transparent border border-primary/30 hover:border-primary hover:bg-gradient-primary hover:shadow-glow transition-all duration-300 group relative overflow-hidden text-primary hover:text-white px-8 py-4 text-lg hover:-translate-y-1"
                 style={{
                   transition:
                     "transform 300ms cubic-bezier(0.4, 0, 0.2, 1), border-color 300ms cubic-bezier(0.4, 0, 0.2, 1), background 300ms cubic-bezier(0.4, 0, 0.2, 1)",
