@@ -171,7 +171,7 @@ const EnterpriseSlide = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-xdc-cyan/30 hover:border-xdc-cyan hover:bg-xdc-cyan/10 transition-all duration-300 group hover:-translate-y-1"
+                  className="border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-300 group hover:-translate-y-1"
                   style={{
                     transition: "transform 300ms cubic-bezier(0.4, 0, 0.2, 1)",
                   }}
