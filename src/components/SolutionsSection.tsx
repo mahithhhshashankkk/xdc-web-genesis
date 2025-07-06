@@ -202,28 +202,34 @@ const TradeFinanceSlide = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center lg:text-left lg:flex lg:items-center lg:gap-16">
           {/* Icon */}
-          <div className="mb-8 lg:mb-0 lg:flex-shrink-0">
-            <div className="w-24 h-24 mx-auto lg:mx-0 bg-gradient-to-br from-primary/20 to-xdc-cyan/10 rounded-3xl flex items-center justify-center group hover:scale-110 transition-all duration-500 cursor-pointer">
-              <TrendingUp className="w-12 h-12 text-primary" />
-            </div>
-          </div>
+          <AnimatedIcon
+            icon={TrendingUp}
+            delay={0}
+            className="mb-8 lg:mb-0 lg:flex-shrink-0"
+          >
+            <div className="w-24 h-24 mx-auto lg:mx-0 bg-gradient-to-br from-primary/20 to-xdc-cyan/10 rounded-3xl flex items-center justify-center group hover:scale-110 transition-all duration-500 cursor-pointer"></div>
+          </AnimatedIcon>
 
           {/* Content */}
           <div className="lg:flex-1">
             <div className="mb-8">
-              <div className="flex items-center gap-2 mb-4 justify-center lg:justify-start">
-                <Diamond className="w-3 h-3 text-primary" />
-                <span className="text-sm font-medium text-primary tracking-wider uppercase">
-                  Trade Finance
-                </span>
-              </div>
-              <p className="text-2xl md:text-3xl lg:text-4xl leading-relaxed text-foreground font-light">
-                XDC Network sets a benchmark for digitizing trade finance by
-                enabling the tokenization of diverse trade finance instruments
-                and assets. Transform traditional trading with
-                blockchain-powered efficiency, transparency, and global
-                accessibility.
-              </p>
+              <AnimatedText delay={200} direction="right">
+                <div className="flex items-center gap-2 mb-4 justify-center lg:justify-start">
+                  <Diamond className="w-3 h-3 text-primary" />
+                  <span className="text-sm font-medium text-primary tracking-wider uppercase">
+                    Trade Finance
+                  </span>
+                </div>
+              </AnimatedText>
+              <AnimatedText delay={400} direction="up">
+                <p className="text-2xl md:text-3xl lg:text-4xl leading-relaxed text-foreground font-light">
+                  XDC Network sets a benchmark for digitizing trade finance by
+                  enabling the tokenization of diverse trade finance instruments
+                  and assets. Transform traditional trading with
+                  blockchain-powered efficiency, transparency, and global
+                  accessibility.
+                </p>
+              </AnimatedText>
             </div>
 
             {/* CTA Buttons */}
