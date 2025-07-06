@@ -283,50 +283,65 @@ const DevelopersSlide = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center lg:text-left lg:flex lg:items-center lg:gap-16">
           {/* Icon */}
-          <div className="mb-8 lg:mb-0 lg:flex-shrink-0">
-            <div className="w-24 h-24 mx-auto lg:mx-0 bg-gradient-to-br from-xdc-cyan/20 to-primary/20 rounded-3xl flex items-center justify-center group hover:scale-110 transition-all duration-500 cursor-pointer">
-              <Code className="w-12 h-12 text-xdc-cyan" />
-            </div>
-          </div>
+          <AnimatedIcon
+            icon={Code}
+            delay={0}
+            className="mb-8 lg:mb-0 lg:flex-shrink-0"
+          >
+            <div className="w-24 h-24 mx-auto lg:mx-0 bg-gradient-to-br from-xdc-cyan/20 to-primary/20 rounded-3xl flex items-center justify-center group hover:scale-110 transition-all duration-500 cursor-pointer"></div>
+          </AnimatedIcon>
 
           {/* Content */}
           <div className="lg:flex-1">
             <div className="mb-8">
-              <div className="flex items-center gap-2 mb-4 justify-center lg:justify-start">
-                <Diamond className="w-3 h-3 text-xdc-cyan" />
-                <span className="text-sm font-medium text-xdc-cyan tracking-wider uppercase">
-                  Developers & Creators
-                </span>
-              </div>
-              <p className="text-2xl md:text-3xl lg:text-4xl leading-relaxed text-foreground font-light">
-                XDC Network is an enterprise-grade, open-source and
-                EVM-compatible Layer 1 blockchain. Geared to accommodate any EVM
-                tool set, developers can carry their skills from other chains
-                onto the XDC Network and start building immediately.
-              </p>
+              <AnimatedText delay={200} direction="right">
+                <div className="flex items-center gap-2 mb-4 justify-center lg:justify-start">
+                  <Diamond className="w-3 h-3 text-xdc-cyan" />
+                  <span className="text-sm font-medium text-xdc-cyan tracking-wider uppercase">
+                    Developers & Creators
+                  </span>
+                </div>
+              </AnimatedText>
+              <AnimatedText delay={400} direction="up">
+                <p className="text-2xl md:text-3xl lg:text-4xl leading-relaxed text-foreground font-light">
+                  XDC Network is an enterprise-grade, open-source and
+                  EVM-compatible Layer 1 blockchain. Geared to accommodate any
+                  EVM tool set, developers can carry their skills from other
+                  chains onto the XDC Network and start building immediately.
+                </p>
+              </AnimatedText>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button
-                size="lg"
-                className="bg-transparent border border-white/20 hover:border-xdc-cyan hover:bg-gradient-primary hover:shadow-glow transition-all duration-300 group relative overflow-hidden text-xdc-cyan hover:text-black"
-              >
-                <span className="relative z-10 flex items-center gap-3">
-                  <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-2" />
-                  <span>Start Creating with XDC</span>
-                  <ArrowRight className="w-4 h-4 opacity-0 -translate-x-6 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
-                </span>
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-xdc-cyan/30 hover:border-xdc-cyan hover:bg-xdc-cyan/10 transition-all duration-300 group"
-              >
-                <Code className="mr-2 w-4 h-4" />
-                Documentation
-              </Button>
-            </div>
+            <AnimatedText delay={600} direction="up">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button
+                  size="lg"
+                  className="bg-transparent border border-white/20 hover:border-xdc-cyan hover:bg-gradient-primary hover:shadow-glow transition-all duration-300 group relative overflow-hidden text-xdc-cyan hover:text-black hover:-translate-y-1"
+                  style={{
+                    transition:
+                      "transform 300ms cubic-bezier(0.4, 0, 0.2, 1), border-color 300ms cubic-bezier(0.4, 0, 0.2, 1), background 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+                  }}
+                >
+                  <span className="relative z-10 flex items-center gap-3">
+                    <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-2" />
+                    <span>Start Creating with XDC</span>
+                    <ArrowRight className="w-4 h-4 opacity-0 -translate-x-6 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+                  </span>
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-xdc-cyan/30 hover:border-xdc-cyan hover:bg-xdc-cyan/10 transition-all duration-300 group hover:-translate-y-1"
+                  style={{
+                    transition: "transform 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+                  }}
+                >
+                  <Code className="mr-2 w-4 h-4" />
+                  Documentation
+                </Button>
+              </div>
+            </AnimatedText>
           </div>
         </div>
       </div>
