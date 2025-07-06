@@ -414,15 +414,19 @@ const GetStartedSection = () => {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Get Started with{" "}
-              <span className="text-xdc-cyan">XDC Network</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Join the future of enterprise blockchain. Start building on XDC
-              Network today with our comprehensive developer tools and
-              resources.
-            </p>
+            <AnimatedText delay={0}>
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                Get Started with{" "}
+                <span className="text-xdc-cyan">XDC Network</span>
+              </h2>
+            </AnimatedText>
+            <AnimatedText delay={200}>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Join the future of enterprise blockchain. Start building on XDC
+                Network today with our comprehensive developer tools and
+                resources.
+              </p>
+            </AnimatedText>
           </div>
 
           {/* Steps Grid */}
