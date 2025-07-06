@@ -141,7 +141,7 @@ const EnterpriseSlide = () => {
                 </div>
               </AnimatedText>
               <AnimatedText delay={400} direction="up">
-                <p className="text-2xl md:text-3xl lg:text-4xl leading-relaxed text-foreground font-light">
+                <p className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-relaxed text-foreground font-light">
                   XDC Network is an enterprise-grade, open-source blockchain
                   protocol. An EVM-compatible chain with smart contract
                   capabilities, it is uniquely suited to revolutionize,
