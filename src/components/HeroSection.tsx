@@ -111,17 +111,18 @@ const HeroSection = () => {
           </AnimatedHeroText>
         </div>
 
-        {/* Triangular Image Preview */}
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-40 h-20 overflow-hidden">
+        {/* Semi-circular Image Preview */}
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-48 h-24 overflow-hidden">
           <div
-            className="w-full h-full bg-cover bg-center transform rotate-180"
+            className="w-full h-full bg-cover bg-center"
             style={{
               backgroundImage:
-                "url('https://cdn.builder.io/api/v1/image/assets%2F175e07c0953248be8def67c5d8e27247%2F9dac1cf560d446aa83ae5d63cd9af7e2?format=webp&width=1920&quality=90')",
-              clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
-              opacity: 0.6,
+                "url('https://cdn.builder.io/api/v1/image/assets%2F175e07c0953248be8def67c5d8e27247%2F9dac1cf560d446aa83ae5d63cd9af7e2?format=webp&width=2048&quality=95')",
+              clipPath: "ellipse(50% 100% at 50% 100%)",
+              opacity: 0.8,
             }}
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-background opacity-60" />
         </div>
       </div>
     </section>
