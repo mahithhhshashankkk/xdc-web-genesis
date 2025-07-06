@@ -432,44 +432,52 @@ const GetStartedSection = () => {
           {/* Steps Grid */}
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             {steps.map((step, index) => (
-              <div key={index} className="group relative">
-                <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 hover:bg-card/80 transition-all duration-300 hover:shadow-glow hover:border-xdc-cyan/30">
-                  <div className="w-16 h-16 bg-gradient-to-br from-xdc-cyan/20 to-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <step.icon className="w-8 h-8 text-xdc-cyan" />
+              <AnimatedText
+                key={index}
+                delay={300 + index * 150}
+                direction="up"
+              >
+                <div className="group relative">
+                  <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 hover:bg-card/80 transition-all duration-300 hover:shadow-glow hover:border-xdc-cyan/30">
+                    <div className="w-16 h-16 bg-gradient-to-br from-xdc-cyan/20 to-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <step.icon className="w-8 h-8 text-xdc-cyan" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground mb-4">
+                      {step.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {step.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-4">
-                    {step.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
 
-                {/* Step Number */}
-                <div className="absolute -top-3 -right-3 w-8 h-8 bg-xdc-cyan rounded-full flex items-center justify-center text-sm font-bold text-xdc-dark">
-                  {index + 1}
+                  {/* Step Number */}
+                  <div className="absolute -top-3 -right-3 w-8 h-8 bg-xdc-cyan rounded-full flex items-center justify-center text-sm font-bold text-xdc-dark">
+                    {index + 1}
+                  </div>
                 </div>
-              </div>
+              </AnimatedText>
             ))}
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button
-              size="lg"
-              className="bg-gradient-primary hover:shadow-glow transition-all duration-300 group"
-            >
-              Start Building
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-xdc-cyan/30 hover:border-xdc-cyan hover:bg-xdc-cyan/10 transition-all duration-300"
-            >
-              View Documentation
-            </Button>
-          </div>
+          <AnimatedText delay={750}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button
+                size="lg"
+                className="bg-gradient-primary hover:shadow-glow transition-all duration-300 group"
+              >
+                Start Building
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-xdc-cyan/30 hover:border-xdc-cyan hover:bg-xdc-cyan/10 transition-all duration-300"
+              >
+                View Documentation
+              </Button>
+            </div>
+          </AnimatedText>
         </div>
       </div>
     </section>
