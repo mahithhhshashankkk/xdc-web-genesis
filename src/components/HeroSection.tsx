@@ -52,7 +52,7 @@ const AnimatedHeroText = ({
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center bg-gradient-hero overflow-hidden">
       {/* 3D Animated Background */}
       <HeroBackground3D />
 
@@ -61,36 +61,46 @@ const HeroSection = () => {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/3 rounded-full blur-3xl"></div>
 
-      <div className="container mx-auto px-6 text-center relative z-10">
+      <div className="container mx-auto px-6 text-center relative z-10 flex items-center justify-center min-h-screen">
         <div className="max-w-5xl mx-auto space-y-8">
           {/* Main Hero Text */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-foreground leading-tight">
-            Success Depends on
-            <br />
-            <span className="text-primary bg-gradient-primary bg-clip-text text-transparent font-normal">
-              Your Network
-            </span>
-          </h1>
+          <AnimatedHeroText delay={300}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-foreground leading-tight">
+              Success Depends on
+              <br />
+              <span className="text-primary bg-gradient-primary bg-clip-text text-transparent font-normal">
+                Your Network
+              </span>
+            </h1>
+          </AnimatedHeroText>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Discover a low cost, fast and reliable blockchain built for everyone
-            — a network of possibilities.
-          </p>
+          <AnimatedHeroText delay={600}>
+            <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Discover a low cost, fast and reliable blockchain built for
+              everyone — a network of possibilities.
+            </p>
+          </AnimatedHeroText>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-12">
-            <Button
-              size="xl"
-              className="bg-transparent border border-white/20 hover:border-xdc-cyan hover:bg-gradient-primary hover:shadow-glow transition-all duration-300 group relative overflow-hidden text-xdc-cyan hover:text-black px-8 py-4 text-lg"
-            >
-              <span className="relative z-10 flex items-center gap-4">
-                <ArrowRight className="w-5 h-5 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-2" />
-                <span>Get started with XDC</span>
-                <ArrowRight className="w-5 h-5 opacity-0 -translate-x-6 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
-              </span>
-            </Button>
-          </div>
+          <AnimatedHeroText delay={900}>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-12">
+              <Button
+                size="xl"
+                className="bg-transparent border border-white/20 hover:border-xdc-cyan hover:bg-gradient-primary hover:shadow-glow transition-all duration-300 group relative overflow-hidden text-xdc-cyan hover:text-black px-8 py-4 text-lg hover:-translate-y-1"
+                style={{
+                  transition:
+                    "transform 300ms cubic-bezier(0.4, 0, 0.2, 1), border-color 300ms cubic-bezier(0.4, 0, 0.2, 1), background 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+                }}
+              >
+                <span className="relative z-10 flex items-center gap-4">
+                  <ArrowRight className="w-5 h-5 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-2" />
+                  <span>Get started with XDC</span>
+                  <ArrowRight className="w-5 h-5 opacity-0 -translate-x-6 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+                </span>
+              </Button>
+            </div>
+          </AnimatedHeroText>
 
           {/* Additional info */}
           <div className="pt-12 text-center">
