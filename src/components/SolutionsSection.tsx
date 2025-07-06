@@ -297,16 +297,16 @@ const DevelopersSlide = () => {
                 <div className="flex items-center gap-2 mb-4 justify-center lg:justify-start">
                   <Diamond className="w-3 h-3 text-xdc-cyan" />
                   <span className="text-sm font-medium text-xdc-cyan tracking-wider uppercase">
-                    Developers & Creators
+                    Global Market Access
                   </span>
                 </div>
               </AnimatedText>
               <AnimatedText delay={400} direction="up">
                 <p className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-relaxed text-foreground font-light">
-                  XDC Network is an enterprise-grade, open-source and
-                  EVM-compatible Layer 1 blockchain. Geared to accommodate any
-                  EVM tool set, developers can carry their skills from other
-                  chains onto the XDC Network and start building immediately.
+                  Facilitating entry into international markets through
+                  strategic partnerships, unlocking trade and growth
+                  opportunities. We connect health-focused producers with global
+                  consumers seeking transparent, sustainable products.
                 </p>
               </AnimatedText>
             </div>
