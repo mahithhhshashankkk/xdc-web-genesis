@@ -4,8 +4,176 @@ import SolutionsSection from "@/components/SolutionsSection";
 import PartnersSection from "@/components/PartnersSection";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, Download, BookOpen } from "lucide-react";
+import {
+  ArrowRight,
+  Play,
+  Download,
+  BookOpen,
+  Github,
+  Youtube,
+  Music,
+  Radio,
+} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+
+// Animated Text Wrapper Component
+const AnimatedText = ({
+  children,
+  delay = 0,
+  direction = "up",
+  className = "",
+}) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => setIsVisible(true), delay);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "50px" },
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [delay]);
+
+  const getInitialTransform = () => {
+    switch (direction) {
+      case "up":
+        return "translateY(30px)";
+      case "down":
+        return "translateY(-30px)";
+      case "left":
+        return "translateX(30px)";
+      case "right":
+        return "translateX(-30px)";
+      default:
+        return "translateY(30px)";
+    }
+  };
+
+  return (
+    <div
+      ref={elementRef}
+      className={className}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translate(0)" : getInitialTransform(),
+        transition:
+          "opacity 600ms cubic-bezier(0.4, 0, 0.2, 1), transform 600ms cubic-bezier(0.4, 0, 0.2, 1)",
+        willChange: "opacity, transform",
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+
+// Social Media Section
+const SocialMediaSection = () => {
+  const socialPlatforms = [
+    {
+      name: "LinkedIn",
+      icon: "🔗",
+      url: "https://linkedin.com",
+      bgColor: "from-blue-600/20 to-blue-400/10",
+    },
+    {
+      name: "YouTube",
+      icon: Youtube,
+      url: "https://youtube.com",
+      bgColor: "from-red-600/20 to-red-400/10",
+    },
+    {
+      name: "X",
+      icon: "𝕏",
+      url: "https://x.com",
+      bgColor: "from-gray-600/20 to-gray-400/10",
+    },
+    {
+      name: "GitHub",
+      icon: Github,
+      url: "https://github.com",
+      bgColor: "from-purple-600/20 to-purple-400/10",
+    },
+    {
+      name: "Spotify",
+      icon: Music,
+      url: "https://spotify.com",
+      bgColor: "from-green-600/20 to-green-400/10",
+    },
+    {
+      name: "iHeart",
+      icon: Radio,
+      url: "https://iheart.com",
+      bgColor: "from-orange-600/20 to-orange-400/10",
+    },
+  ];
+
+  return (
+    <section className="py-24 bg-gradient-to-b from-background to-xdc-dark/10">
+      <div className="container mx-auto px-6">
+        <div className="max-w-6xl mx-auto">
+          <AnimatedText delay={0} className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Connect with <span className="text-xdc-cyan">XDC Network</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Follow us across all platforms to stay updated with the latest
+              developments, insights, and community discussions.
+            </p>
+          </AnimatedText>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {socialPlatforms.map((platform, index) => (
+              <AnimatedText
+                key={platform.name}
+                delay={index * 100}
+                direction="up"
+              >
+                <a
+                  href={platform.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative block"
+                >
+                  <div
+                    className={`bg-gradient-to-br ${platform.bgColor} border border-border rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-glow hover:border-xdc-cyan/30 hover:-translate-y-2 hover:scale-105`}
+                    style={{
+                      transition:
+                        "transform 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), border-color 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+                    }}
+                  >
+                    <div className="flex flex-col items-center space-y-3">
+                      <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/10 group-hover:bg-xdc-cyan/20 transition-colors duration-300">
+                        {typeof platform.icon === "string" ? (
+                          <span className="text-2xl">{platform.icon}</span>
+                        ) : (
+                          <platform.icon className="w-6 h-6 text-foreground group-hover:text-xdc-cyan transition-colors duration-300" />
+                        )}
+                      </div>
+                      <span className="text-sm font-medium text-foreground group-hover:text-xdc-cyan transition-colors duration-300">
+                        {platform.name}
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              </AnimatedText>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 // Full-Screen Image Section with Triangular Slide Animation
 const ImageHoverSection = () => {
