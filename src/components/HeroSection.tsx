@@ -1,6 +1,54 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import HeroBackground3D from "./HeroBackground3D";
+import { useEffect, useRef, useState } from "react";
+
+// Animated Text Component for Hero
+const AnimatedHeroText = ({
+  children,
+  delay = 0,
+  direction = "up",
+  className = "",
+}) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef(null);
+
+  useEffect(() => {
+    // Auto-trigger animation for hero section
+    setTimeout(() => setIsVisible(true), delay);
+  }, [delay]);
+
+  const getInitialTransform = () => {
+    switch (direction) {
+      case "up":
+        return "translateY(40px)";
+      case "down":
+        return "translateY(-40px)";
+      case "left":
+        return "translateX(40px)";
+      case "right":
+        return "translateX(-40px)";
+      default:
+        return "translateY(40px)";
+    }
+  };
+
+  return (
+    <div
+      ref={elementRef}
+      className={className}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translate(0)" : getInitialTransform(),
+        transition:
+          "opacity 800ms cubic-bezier(0.4, 0, 0.2, 1), transform 800ms cubic-bezier(0.4, 0, 0.2, 1)",
+        willChange: "opacity, transform",
+      }}
+    >
+      {children}
+    </div>
+  );
+};
 
 const HeroSection = () => {
   return (
