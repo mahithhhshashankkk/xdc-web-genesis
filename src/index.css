@@ -46,9 +46,21 @@
     --xdc-dark-elevated: 220 13% 12%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-hero: linear-gradient(180deg, hsl(var(--background)), hsl(220 13% 6%));
-    --gradient-glow: radial-gradient(circle at center, hsl(var(--primary) / 0.3), transparent 70%);
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(var(--primary)),
+      hsl(var(--primary-glow))
+    );
+    --gradient-hero: linear-gradient(
+      180deg,
+      hsl(var(--background)),
+      hsl(220 13% 6%)
+    );
+    --gradient-glow: radial-gradient(
+      circle at center,
+      hsl(var(--primary) / 0.3),
+      transparent 70%
+    );
 
     /* Shadows and effects */
     --shadow-glow: 0 0 40px hsl(var(--primary) / 0.4);
@@ -100,4 +112,51 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Section Animation Styles */
+@layer utilities {
+  .animate-in {
+    animation: fadeSlideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-in-delayed {
+    animation: fadeSlideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth scrolling for the entire document */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section transition styles */
+section {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced glow effects for better visual feedback */
+.shadow-glow {
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.3),
+    0 0 40px rgba(0, 255, 255, 0.1);
+}
+
+.shadow-glow:hover {
+  box-shadow:
+    0 0 30px rgba(0, 255, 255, 0.5),
+    0 0 60px rgba(0, 255, 255, 0.2);
 }
