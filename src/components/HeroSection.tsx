@@ -52,7 +52,7 @@ const AnimatedHeroText = ({
 
 const HeroSection = () => {
   return (
-    <section className="relative h-screen flex items-center justify-center bg-gradient-hero overflow-hidden">
+    <section className="relative h-[85vh] flex items-center justify-center bg-gradient-hero overflow-hidden">
       {/* 3D Animated Background */}
       <HeroBackground3D />
 
