@@ -139,7 +139,7 @@ const Header = () => {
             <div className="hidden md:flex items-center relative">
               <Input
                 type="text"
-                placeholder="Search XDC"
+                placeholder="Search Altibbe"
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
                 className="w-64 bg-muted border-border text-foreground placeholder:text-muted-foreground"
