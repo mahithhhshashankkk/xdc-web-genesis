@@ -512,6 +512,185 @@ const HealthEcologySection = () => {
   );
 };
 
+// Blog Section Component
+const BlogSection = () => {
+  const blogPosts = [
+    {
+      date: { day: "12", month: "Feb", year: "2025" },
+      title:
+        "Time-Tested Detox Practices: The Science Behind Nature's Healing Powers",
+      category: "Uncategorized",
+      comments: "No Comments",
+      icon: "🌿",
+    },
+    {
+      date: { day: "17", month: "Dec", year: "2024" },
+      title: "Mind-Body Health: Progressing Together with Natural Nutrition",
+      category: "Altibbe",
+      comments: "No Comments",
+      icon: "🧠",
+    },
+    {
+      date: { day: "17", month: "Dec", year: "2024" },
+      title:
+        "The Power of Knowledge: Educating Ourselves to Make Better Food Choices",
+      category: "Altibbe",
+      comments: "No Comments",
+      icon: "📚",
+    },
+    {
+      date: { day: "17", month: "Dec", year: "2024" },
+      title: "Food as Medicine: Rediscovering Ancient Wisdom for Modern Health",
+      category: "Altibbe",
+      comments: "No Comments",
+      icon: "⚕️",
+    },
+  ];
+
+  return (
+    <section className="py-24 bg-gradient-to-b from-background to-xdc-dark/10">
+      <div className="container mx-auto px-6">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <AnimatedText delay={0} className="text-center mb-16">
+            <h2
+              className="text-4xl md:text-5xl font-bold text-foreground mb-6"
+              style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}
+            >
+              Latest <span className="text-xdc-cyan">Health Insights</span>
+            </h2>
+            <p
+              className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+              style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}
+            >
+              Discover the latest research and insights in health, nutrition,
+              and sustainable living.
+            </p>
+          </AnimatedText>
+
+          {/* Blog Posts Grid */}
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Featured Post (Left) */}
+            <AnimatedText delay={200} direction="left">
+              <article className="group cursor-pointer">
+                <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl overflow-hidden hover:bg-card/80 transition-all duration-300 hover:shadow-glow hover:border-xdc-cyan/30">
+                  {/* Date Badge */}
+                  <div className="relative">
+                    <div className="absolute top-4 left-4 z-10">
+                      <div className="bg-xdc-cyan text-xdc-dark rounded-lg px-3 py-2 text-center min-w-[80px]">
+                        <div className="text-2xl font-bold">
+                          {blogPosts[0].date.day}
+                        </div>
+                        <div className="text-xs font-medium">
+                          {blogPosts[0].date.month}
+                        </div>
+                        <div className="text-xs">{blogPosts[0].date.year}</div>
+                      </div>
+                    </div>
+
+                    {/* Neon Icon instead of image */}
+                    <div className="h-48 bg-gradient-to-br from-xdc-cyan/20 to-primary/10 flex items-center justify-center">
+                      <div className="text-6xl opacity-80 group-hover:scale-110 transition-transform duration-300">
+                        {blogPosts[0].icon}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-6">
+                    <h3
+                      className="text-xl font-semibold text-foreground mb-2 group-hover:text-xdc-cyan transition-colors duration-300 group-hover:underline"
+                      style={{
+                        fontFamily: "ui-sans-serif, system-ui, sans-serif",
+                      }}
+                    >
+                      {blogPosts[0].title}
+                    </h3>
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                      <span>{blogPosts[0].category}</span>
+                      <span>•</span>
+                      <span>{blogPosts[0].comments}</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </AnimatedText>
+
+            {/* Other Posts (Right) */}
+            <div className="space-y-6">
+              {blogPosts.slice(1).map((post, index) => (
+                <AnimatedText
+                  key={index}
+                  delay={300 + index * 150}
+                  direction="right"
+                >
+                  <article className="group cursor-pointer">
+                    <div className="flex gap-4 bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-4 hover:bg-card/80 transition-all duration-300 hover:shadow-glow hover:border-xdc-cyan/30">
+                      {/* Date Badge */}
+                      <div className="flex-shrink-0">
+                        <div className="bg-primary text-xdc-dark rounded-lg px-3 py-2 text-center min-w-[70px]">
+                          <div className="text-xl font-bold">
+                            {post.date.day}
+                          </div>
+                          <div className="text-xs font-medium">
+                            {post.date.month}
+                          </div>
+                          <div className="text-xs">{post.date.year}</div>
+                        </div>
+                      </div>
+
+                      <div className="flex-1">
+                        <h3
+                          className="text-lg font-semibold text-foreground mb-2 group-hover:text-xdc-cyan transition-colors duration-300 group-hover:underline"
+                          style={{
+                            fontFamily: "ui-sans-serif, system-ui, sans-serif",
+                          }}
+                        >
+                          {post.title}
+                        </h3>
+                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                          <span>{post.category}</span>
+                          <span>•</span>
+                          <span>{post.comments}</span>
+                        </div>
+                      </div>
+
+                      {/* Neon Icon */}
+                      <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-xdc-cyan/20 to-primary/10 rounded-lg flex items-center justify-center">
+                        <div className="text-2xl opacity-80 group-hover:scale-110 transition-transform duration-300">
+                          {post.icon}
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </AnimatedText>
+              ))}
+            </div>
+          </div>
+
+          {/* View All Posts Button */}
+          <AnimatedText delay={800} className="text-center mt-12">
+            <Button
+              size="lg"
+              className="bg-transparent border border-white/20 hover:border-xdc-cyan hover:bg-gradient-primary hover:shadow-glow transition-all duration-300 group relative overflow-hidden text-xdc-cyan hover:text-black hover:-translate-y-1"
+              style={{
+                transition:
+                  "transform 300ms cubic-bezier(0.4, 0, 0.2, 1), border-color 300ms cubic-bezier(0.4, 0, 0.2, 1), background 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+                fontFamily: "ui-sans-serif, system-ui, sans-serif",
+              }}
+            >
+              <span className="relative z-10 flex items-center gap-3">
+                <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-2" />
+                <span>View All Posts</span>
+                <ArrowRight className="w-4 h-4 opacity-0 -translate-x-6 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+              </span>
+            </Button>
+          </AnimatedText>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
