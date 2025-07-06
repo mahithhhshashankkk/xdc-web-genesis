@@ -52,29 +52,34 @@ const Header = () => {
 
   const navigationItems = [
     {
-      label: "Network",
-      hasDropdown: true,
-      items: ["Explorer", "Validators", "Network Stats"],
+      label: "Home",
+      hasDropdown: false,
+      items: [],
     },
     {
-      label: "Solutions",
+      label: "Hedamo",
       hasDropdown: true,
-      items: ["Enterprise", "Trade Finance", "DeFi"],
+      items: ["Organic Farms", "Health Reviews", "Transparency Labels"],
     },
     {
-      label: "Build on XDC",
+      label: "Services",
       hasDropdown: true,
-      items: ["Developer Tools", "Documentation", "GitHub"],
+      items: ["Farm Consulting", "Health Reporting", "Global Market Access"],
     },
     {
-      label: "Resources",
+      label: "About",
       hasDropdown: true,
-      items: ["Whitepaper", "Research", "Blog"],
+      items: ["Our Mission", "Team", "Innovation"],
     },
     {
-      label: "Community",
-      hasDropdown: true,
-      items: ["Discord", "Telegram", "Twitter"],
+      label: "Blog",
+      hasDropdown: false,
+      items: [],
+    },
+    {
+      label: "Contact",
+      hasDropdown: false,
+      items: [],
     },
   ];
 
