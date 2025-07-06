@@ -171,7 +171,7 @@ const Header = () => {
               <div className="relative md:hidden">
                 <Input
                   type="text"
-                  placeholder="Search XDC"
+                  placeholder="Search Altibbe"
                   value={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}
                   className="w-full bg-muted border-border"
