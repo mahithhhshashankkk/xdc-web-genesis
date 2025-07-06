@@ -121,28 +121,34 @@ const EnterpriseSlide = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center lg:text-left lg:flex lg:items-center lg:gap-16">
           {/* Icon */}
-          <div className="mb-8 lg:mb-0 lg:flex-shrink-0">
-            <div className="w-24 h-24 mx-auto lg:mx-0 bg-gradient-to-br from-xdc-cyan/20 to-primary/10 rounded-3xl flex items-center justify-center group hover:scale-110 transition-all duration-500 cursor-pointer">
-              <Building2 className="w-12 h-12 text-xdc-cyan" />
-            </div>
-          </div>
+          <AnimatedIcon
+            icon={Building2}
+            delay={0}
+            className="mb-8 lg:mb-0 lg:flex-shrink-0"
+          >
+            <div className="w-24 h-24 mx-auto lg:mx-0 bg-gradient-to-br from-xdc-cyan/20 to-primary/10 rounded-3xl flex items-center justify-center group hover:scale-110 transition-all duration-500 cursor-pointer"></div>
+          </AnimatedIcon>
 
           {/* Content */}
           <div className="lg:flex-1">
             <div className="mb-8">
-              <div className="flex items-center gap-2 mb-4 justify-center lg:justify-start">
-                <Diamond className="w-3 h-3 text-xdc-cyan" />
-                <span className="text-sm font-medium text-xdc-cyan tracking-wider uppercase">
-                  Enterprise
-                </span>
-              </div>
-              <p className="text-2xl md:text-3xl lg:text-4xl leading-relaxed text-foreground font-light">
-                XDC Network is an enterprise-grade, open-source blockchain
-                protocol. An EVM-compatible chain with smart contract
-                capabilities, it is uniquely suited to revolutionize,
-                decentralize, and liquify the enterprise industry through the
-                tokenization of real-world assets and business processes.
-              </p>
+              <AnimatedText delay={200} direction="right">
+                <div className="flex items-center gap-2 mb-4 justify-center lg:justify-start">
+                  <Diamond className="w-3 h-3 text-xdc-cyan" />
+                  <span className="text-sm font-medium text-xdc-cyan tracking-wider uppercase">
+                    Enterprise
+                  </span>
+                </div>
+              </AnimatedText>
+              <AnimatedText delay={400} direction="up">
+                <p className="text-2xl md:text-3xl lg:text-4xl leading-relaxed text-foreground font-light">
+                  XDC Network is an enterprise-grade, open-source blockchain
+                  protocol. An EVM-compatible chain with smart contract
+                  capabilities, it is uniquely suited to revolutionize,
+                  decentralize, and liquify the enterprise industry through the
+                  tokenization of real-world assets and business processes.
+                </p>
+              </AnimatedText>
             </div>
 
             {/* CTA Buttons */}
