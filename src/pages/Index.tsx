@@ -492,6 +492,7 @@ const Index = () => {
       <ImageHoverSection />
       <GetStartedSection />
       <SolutionsSection />
+      <SocialMediaSection />
       <PartnersSection />
       <Footer />
     </div>
