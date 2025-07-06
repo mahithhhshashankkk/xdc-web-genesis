@@ -52,7 +52,7 @@ const AnimatedHeroText = ({
 
 const HeroSection = () => {
   return (
-    <section className="relative h-screen flex items-center justify-center bg-gradient-hero overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center bg-gradient-hero overflow-hidden pt-20">
       {/* 3D Animated Background */}
       <HeroBackground3D />
 
@@ -61,11 +61,14 @@ const HeroSection = () => {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/3 rounded-full blur-3xl"></div>
 
-      <div className="container mx-auto px-6 text-center relative z-10 flex items-center justify-center min-h-screen">
+      <div className="container mx-auto px-6 text-center relative z-10 flex items-center justify-center min-h-[calc(100vh-5rem)]">
         <div className="max-w-5xl mx-auto space-y-8">
           {/* Main Hero Text */}
           <AnimatedHeroText delay={300}>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-foreground leading-tight">
+            <h1
+              className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-foreground leading-tight"
+              style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}
+            >
               Success Depends on
               <br />
               <span className="text-primary bg-gradient-primary bg-clip-text text-transparent font-normal">
@@ -76,7 +79,10 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <AnimatedHeroText delay={600}>
-            <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p
+              className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+              style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}
+            >
               Discover a low cost, fast and reliable blockchain built for
               everyone — a network of possibilities.
             </p>
@@ -91,6 +97,7 @@ const HeroSection = () => {
                 style={{
                   transition:
                     "transform 300ms cubic-bezier(0.4, 0, 0.2, 1), border-color 300ms cubic-bezier(0.4, 0, 0.2, 1), background 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+                  fontFamily: "ui-sans-serif, system-ui, sans-serif",
                 }}
               >
                 <span className="relative z-10 flex items-center gap-4">
@@ -99,6 +106,48 @@ const HeroSection = () => {
                   <ArrowRight className="w-5 h-5 opacity-0 -translate-x-6 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
                 </span>
               </Button>
+            </div>
+          </AnimatedHeroText>
+
+          {/* Additional info */}
+          <AnimatedHeroText delay={1200}>
+            <div className="pt-12 text-center">
+              <p
+                className="text-muted-foreground text-sm md:text-base mb-6 leading-relaxed"
+                style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}
+              >
+                XDC Network is an enterprise-grade, open-source blockchain
+                protocol. An EVM-compatible chain with smart contract
+                capabilities, it is uniquely suited to revolutionize,
+                decentralize, and liquify the trade finance industry through the
+                tokenization of real-world assets and financial instruments.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="group relative overflow-hidden hover:-translate-y-1"
+                  style={{
+                    fontFamily: "ui-sans-serif, system-ui, sans-serif",
+                    transition: "transform 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+                  }}
+                >
+                  <span className="relative z-10">Explore the Network</span>
+                  <div className="absolute inset-0 bg-primary/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
+                </Button>
+                <Button
+                  variant="link"
+                  className="text-primary relative group hover:-translate-y-1"
+                  style={{
+                    fontFamily: "ui-sans-serif, system-ui, sans-serif",
+                    transition: "transform 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+                  }}
+                >
+                  <span className="relative">What is a blockchain?</span>
+                  <div className="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                </Button>
+              </div>
             </div>
           </AnimatedHeroText>
 
