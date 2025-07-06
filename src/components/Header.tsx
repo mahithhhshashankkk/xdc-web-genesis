@@ -3,6 +3,25 @@ import { Search, ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
+// Smooth scroll to section with animation
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    const headerHeight = 80; // Account for fixed header
+    const targetPosition = element.offsetTop - headerHeight;
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: "smooth",
+    });
+
+    // Add animation trigger
+    setTimeout(() => {
+      element.classList.add("animate-in");
+    }, 300);
+  }
+};
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
