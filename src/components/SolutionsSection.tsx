@@ -191,7 +191,7 @@ const EnterpriseSlide = () => {
 // Full-Screen Trade Finance Slide
 const TradeFinanceSlide = () => {
   return (
-    <section className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-xdc-dark/5 via-background to-primary/5 relative overflow-hidden">
+    <section className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-primary/3 via-background to-primary/8 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-primary rounded-full animate-pulse delay-500"></div>
