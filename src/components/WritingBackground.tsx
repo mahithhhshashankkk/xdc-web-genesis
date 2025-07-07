@@ -60,7 +60,7 @@ const WritingBackground = () => {
           }}
         >
           <div
-            className="relative text-muted-foreground/30"
+            className="relative text-muted-foreground/60"
             style={{
               fontSize: `${paper.size}px`,
             }}
@@ -84,7 +84,7 @@ const WritingBackground = () => {
           }}
         >
           <div
-            className="relative text-primary/40"
+            className="relative text-primary/70"
             style={{
               fontSize: `${pen.size}px`,
             }}
@@ -108,7 +108,7 @@ const WritingBackground = () => {
           }}
         >
           <div
-            className="relative text-muted-foreground/40"
+            className="relative text-muted-foreground/70"
             style={{
               fontSize: `${keyboard.size}px`,
             }}
@@ -119,12 +119,12 @@ const WritingBackground = () => {
       ))}
 
       {/* Writing Lines Pattern */}
-      <div className="absolute top-1/4 left-1/4 opacity-10">
+      <div className="absolute top-1/4 left-1/4 opacity-25">
         <div className="relative w-48 h-32">
           {Array.from({ length: 6 }).map((_, i) => (
             <div
               key={i}
-              className="absolute w-full h-0.5 bg-muted-foreground/20"
+              className="absolute w-full h-0.5 bg-muted-foreground/40"
               style={{
                 top: `${i * 20}%`,
                 animationDelay: `${i * 0.5}s`,
@@ -135,12 +135,12 @@ const WritingBackground = () => {
       </div>
 
       {/* Typewriter Keys Pattern */}
-      <div className="absolute bottom-1/3 right-1/4 opacity-10">
+      <div className="absolute bottom-1/3 right-1/4 opacity-25">
         <div className="relative w-32 h-24">
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}
-              className="absolute w-4 h-4 border border-muted-foreground/20 rounded animate-pulse"
+              className="absolute w-4 h-4 border border-muted-foreground/40 rounded animate-pulse"
               style={{
                 left: `${(i % 4) * 25}%`,
                 top: `${Math.floor(i / 4) * 33}%`,
@@ -153,11 +153,11 @@ const WritingBackground = () => {
       </div>
 
       {/* Ink Drops */}
-      <div className="absolute top-1/3 right-1/3 opacity-20">
+      <div className="absolute top-1/3 right-1/3 opacity-40">
         {Array.from({ length: 8 }).map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 bg-primary/30 rounded-full animate-pulse"
+            className="absolute w-2 h-2 bg-primary/60 rounded-full animate-pulse"
             style={{
               left: `${(i % 3) * 30}px`,
               top: `${Math.floor(i / 3) * 25}px`,
@@ -169,12 +169,12 @@ const WritingBackground = () => {
       </div>
 
       {/* Notebook Spiral */}
-      <div className="absolute bottom-1/4 left-1/4 opacity-15">
+      <div className="absolute bottom-1/4 left-1/4 opacity-30">
         <div className="relative w-16 h-48">
           {Array.from({ length: 8 }).map((_, i) => (
             <div
               key={i}
-              className="absolute w-3 h-3 border-2 border-muted-foreground/20 rounded-full"
+              className="absolute w-3 h-3 border-2 border-muted-foreground/40 rounded-full"
               style={{
                 left: "50%",
                 top: `${i * 12.5}%`,
