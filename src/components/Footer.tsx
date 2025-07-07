@@ -93,21 +93,42 @@ const Footer = () => {
             </div>
 
             {/* Social Links */}
-            <div className="flex space-x-4 pt-4">
-              {socialLinks.map((social, index) => (
-                <Button
-                  key={index}
-                  variant="ghost"
-                  size="icon"
-                  asChild
-                  className="hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110 hover:shadow-glow relative group overflow-hidden"
-                >
-                  <a href={social.href} aria-label={social.label}>
-                    <social.icon className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-primary/20 rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
-                  </a>
-                </Button>
-              ))}
+            <div className="flex justify-center space-x-8 pt-4">
+              <Button
+                variant="ghost"
+                size="lg"
+                asChild
+                className="hover:text-red-500 hover:bg-red-500/10 transition-all duration-300 hover:scale-125 hover:shadow-lg hover:shadow-red-500/20 relative group overflow-hidden w-16 h-16"
+              >
+                <a href="#" aria-label="YouTube">
+                  <Youtube className="w-8 h-8 relative z-10 transition-transform duration-300 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-red-500/20 rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                </a>
+              </Button>
+
+              <Button
+                variant="ghost"
+                size="lg"
+                asChild
+                className="hover:text-sky-400 hover:bg-sky-400/10 transition-all duration-300 hover:scale-125 hover:shadow-lg hover:shadow-sky-400/20 relative group overflow-hidden w-16 h-16"
+              >
+                <a href="#" aria-label="X (Twitter)">
+                  <Twitter className="w-8 h-8 relative z-10 transition-transform duration-300 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-sky-400/20 rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                </a>
+              </Button>
+
+              <Button
+                variant="ghost"
+                size="lg"
+                asChild
+                className="hover:text-pink-500 hover:bg-pink-500/10 transition-all duration-300 hover:scale-125 hover:shadow-lg hover:shadow-pink-500/20 relative group overflow-hidden w-16 h-16"
+              >
+                <a href="#" aria-label="Instagram">
+                  <Instagram className="w-8 h-8 relative z-10 transition-transform duration-300 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-pink-500/20 rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                </a>
+              </Button>
             </div>
           </div>
         </div>
