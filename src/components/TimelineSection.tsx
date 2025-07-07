@@ -77,18 +77,29 @@ const TimelineSection = () => {
           </h2>
         </AnimatedText>
 
-        {/* Timeline Tree */}
+        {/* Timeline Tree - Based on Reference Image */}
         <div className="relative">
-          {/* Tree Trunk */}
+          {/* Tree Trunk - More realistic brown trunk */}
           <div
-            className="absolute left-1/2 transform -translate-x-1/2 w-4 bg-gradient-to-b from-primary/80 via-primary to-primary/60 rounded-full"
-            style={{ height: "100%", top: "10%" }}
+            className="absolute left-1/2 transform -translate-x-1/2 bg-gradient-to-b from-amber-800 via-amber-900 to-amber-950 rounded-t-full rounded-b-lg shadow-lg"
+            style={{
+              width: "24px",
+              height: "calc(100% - 100px)",
+              top: "100px",
+              background:
+                "linear-gradient(180deg, #92400e 0%, #78350f 50%, #451a03 100%)",
+            }}
           >
-            {/* Tree rings */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/20 to-transparent rounded-full"></div>
+            {/* Tree bark texture */}
+            <div className="absolute inset-0 opacity-30">
+              <div className="h-full w-full bg-gradient-to-r from-transparent via-amber-700/40 to-transparent"></div>
+              <div className="absolute top-1/4 left-0 w-full h-1 bg-amber-700/60"></div>
+              <div className="absolute top-2/4 left-0 w-full h-1 bg-amber-700/60"></div>
+              <div className="absolute top-3/4 left-0 w-full h-1 bg-amber-700/60"></div>
+            </div>
           </div>
 
-          <div className="space-y-24">
+          <div className="space-y-32">
             {timelineData.map((item, index) => (
               <AnimatedText key={index} delay={index * 200}>
                 <div
@@ -96,44 +107,61 @@ const TimelineSection = () => {
                 >
                   {/* Content */}
                   <div
-                    className={`w-5/12 ${index % 2 === 0 ? "text-right pr-8" : "text-left pl-8"}`}
+                    className={`w-5/12 ${index % 2 === 0 ? "text-right pr-12" : "text-left pl-12"}`}
                   >
-                    <div className="space-y-4">
-                      <div className="text-4xl md:text-5xl font-light text-primary">
+                    <div className="space-y-6">
+                      <div
+                        className="text-5xl md:text-6xl font-bold text-primary"
+                        style={{ fontFamily: "Playfair Display, serif" }}
+                      >
                         {item.year}
                       </div>
-                      <h3 className="text-xl md:text-2xl font-semibold text-foreground">
+                      <h3
+                        className="text-xl md:text-2xl font-semibold text-foreground leading-tight"
+                        style={{ fontFamily: "Crimson Text, serif" }}
+                      >
                         {item.title}
                       </h3>
-                      <p className="text-muted-foreground leading-relaxed">
+                      <p
+                        className="text-muted-foreground leading-relaxed text-base"
+                        style={{ fontFamily: "Source Serif Pro, serif" }}
+                      >
                         {item.description}
                       </p>
                     </div>
                   </div>
 
-                  {/* Tree Branch and Leaf */}
+                  {/* Tree Branch connecting to trunk */}
                   <div className="relative flex items-center justify-center">
-                    {/* Branch extending from trunk */}
+                    {/* Main branch extending from trunk */}
                     <div
-                      className={`absolute w-16 h-1 bg-gradient-to-r ${index % 2 === 0 ? "from-primary to-primary/60 -left-8" : "from-primary/60 to-primary -right-8"} rounded-full`}
+                      className={`absolute h-3 bg-gradient-to-r ${index % 2 === 0 ? "from-amber-800 to-amber-700" : "from-amber-700 to-amber-800"} rounded-full`}
+                      style={{
+                        width: "80px",
+                        left: index % 2 === 0 ? "-40px" : "-40px",
+                        background:
+                          index % 2 === 0
+                            ? "linear-gradient(90deg, #92400e 0%, #a16207 100%)"
+                            : "linear-gradient(270deg, #92400e 0%, #a16207 100%)",
+                      }}
                     ></div>
 
-                    {/* Leaf/Node */}
-                    <div className="relative z-10">
-                      <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary/80 rounded-full shadow-lg relative">
-                        <div className="absolute inset-0 bg-primary rounded-full animate-pulse opacity-30"></div>
-                        {/* Leaf veins */}
-                        <div className="absolute inset-1 border border-white/30 rounded-full"></div>
-                        <div className="absolute top-1/2 left-1/2 w-1 h-4 bg-white/40 transform -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
-                      </div>
+                    {/* Secondary smaller branches */}
+                    <div
+                      className={`absolute w-8 h-1 bg-amber-700 rounded-full ${index % 2 === 0 ? "-right-3" : "-left-3"} rotate-45`}
+                      style={{ top: "-8px" }}
+                    ></div>
+                    <div
+                      className={`absolute w-6 h-1 bg-amber-700 rounded-full ${index % 2 === 0 ? "-right-2" : "-left-2"} -rotate-45`}
+                      style={{ top: "8px" }}
+                    ></div>
 
-                      {/* Small branches */}
-                      <div
-                        className={`absolute top-1/2 ${index % 2 === 0 ? "-right-2" : "-left-2"} w-3 h-0.5 bg-primary/60 transform -translate-y-1/2 rotate-45`}
-                      ></div>
-                      <div
-                        className={`absolute top-1/2 ${index % 2 === 0 ? "-right-2" : "-left-2"} w-3 h-0.5 bg-primary/60 transform -translate-y-1/2 -rotate-45`}
-                      ></div>
+                    {/* Timeline dot/node */}
+                    <div className="relative z-10">
+                      <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/80 rounded-full shadow-lg relative border-4 border-background">
+                        <div className="absolute inset-0 bg-primary rounded-full animate-pulse opacity-20"></div>
+                        <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-white/80 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+                      </div>
                     </div>
                   </div>
 
@@ -144,13 +172,43 @@ const TimelineSection = () => {
             ))}
           </div>
 
-          {/* Tree Crown */}
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/60 rounded-full shadow-lg relative">
-              <div className="absolute inset-0 bg-primary/30 rounded-full animate-pulse"></div>
-              <div className="absolute inset-2 border-2 border-white/30 rounded-full"></div>
-              <div className="absolute top-1/2 left-1/2 w-2 h-6 bg-white/40 transform -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
-              <div className="absolute top-1/2 left-1/2 w-6 h-2 bg-white/40 transform -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
+          {/* Tree Crown/Top */}
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-8">
+            <div
+              className="w-16 h-16 rounded-full shadow-xl relative"
+              style={{
+                background:
+                  "radial-gradient(circle, #15803d 0%, #166534 50%, #14532d 100%)",
+              }}
+            >
+              <div className="absolute inset-0 bg-primary/20 rounded-full animate-pulse"></div>
+              {/* Tree crown texture */}
+              <div className="absolute inset-2 border border-white/20 rounded-full"></div>
+              <div className="absolute top-1/2 left-1/2 w-3 h-8 bg-white/30 transform -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
+              <div className="absolute top-1/2 left-1/2 w-8 h-3 bg-white/30 transform -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
+            </div>
+          </div>
+
+          {/* Tree roots */}
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-4">
+            <div className="relative">
+              {/* Root spread */}
+              <div
+                className="absolute w-20 h-2 bg-amber-900 rounded-full transform -rotate-12"
+                style={{ left: "-10px", top: "5px" }}
+              ></div>
+              <div
+                className="absolute w-16 h-2 bg-amber-900 rounded-full transform rotate-12"
+                style={{ right: "-8px", top: "5px" }}
+              ></div>
+              <div
+                className="absolute w-12 h-1 bg-amber-800 rounded-full transform -rotate-45"
+                style={{ left: "-20px", top: "10px" }}
+              ></div>
+              <div
+                className="absolute w-10 h-1 bg-amber-800 rounded-full transform rotate-45"
+                style={{ right: "-15px", top: "10px" }}
+              ></div>
             </div>
           </div>
         </div>
