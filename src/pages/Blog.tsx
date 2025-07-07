@@ -136,10 +136,18 @@ const BlogSection = () => {
   );
 };
 
-const Blog = () => {
+interface BlogProps {
+  onNavigate?: (path: string) => void;
+  isTransitioning?: boolean;
+}
+
+const Blog = ({ onNavigate, isTransitioning }: BlogProps) => {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Header
+        onLogoClick={() => onNavigate?.("/")}
+        isTransitioning={isTransitioning}
+      />
       <main className="pt-20">
         <section className="py-16">
           <div className="container mx-auto px-6 text-center">

@@ -2,10 +2,18 @@ import Header from "@/components/Header";
 import SolutionsSection from "@/components/SolutionsSection";
 import Footer from "@/components/Footer";
 
-const Services = () => {
+interface ServicesProps {
+  onNavigate?: (path: string) => void;
+  isTransitioning?: boolean;
+}
+
+const Services = ({ onNavigate, isTransitioning }: ServicesProps) => {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Header
+        onLogoClick={() => onNavigate?.("/")}
+        isTransitioning={isTransitioning}
+      />
       <main className="pt-20">
         <section className="py-16">
           <div className="container mx-auto px-6 text-center">

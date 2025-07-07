@@ -3,10 +3,18 @@ import ImageHoverSection from "@/components/ImageHoverSection";
 import HealthEcologySection from "@/components/HealthEcologySection";
 import Footer from "@/components/Footer";
 
-const Hedamo = () => {
+interface HedamoProps {
+  onNavigate?: (path: string) => void;
+  isTransitioning?: boolean;
+}
+
+const Hedamo = ({ onNavigate, isTransitioning }: HedamoProps) => {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Header
+        onLogoClick={() => onNavigate?.("/")}
+        isTransitioning={isTransitioning}
+      />
       <main className="pt-20">
         <section className="py-16">
           <div className="container mx-auto px-6 text-center">
