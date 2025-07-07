@@ -30,38 +30,62 @@ const TimelineSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
-      {/* Enhanced Background Clock Animation - Smaller and More Translucent */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-5">
-        <div className="relative w-[300px] h-[300px]">
-          {/* Outer rings with subtle glow */}
-          <div className="absolute inset-0 border-2 border-primary/20 rounded-full animate-spin-slow shadow-[0_0_20px_rgba(46,184,46,0.1)]"></div>
-          <div className="absolute inset-6 border border-primary/15 rounded-full animate-spin-reverse shadow-[0_0_15px_rgba(46,184,46,0.08)]"></div>
-          <div className="absolute inset-12 border border-primary/10 rounded-full animate-pulse"></div>
+    <section className="py-16 bg-background relative overflow-hidden">
+      {/* Enhanced Background Clock Animation - Large but Very Translucent */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-3">
+        <div className="relative w-[600px] h-[600px]">
+          {/* Outer rings with very subtle effects */}
+          <div className="absolute inset-0 border-2 border-primary/8 rounded-full animate-spin-slow"></div>
+          <div className="absolute inset-8 border border-primary/6 rounded-full animate-spin-reverse"></div>
+          <div className="absolute inset-16 border border-primary/4 rounded-full animate-pulse"></div>
+          <div className="absolute inset-24 border border-primary/3 rounded-full"></div>
 
           {/* Hour markers */}
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}
-              className="absolute w-0.5 h-6 bg-primary/15"
+              className="absolute w-1 h-12 bg-primary/8"
               style={{
-                top: "8px",
+                top: "20px",
                 left: "50%",
-                transformOrigin: "50% 142px",
+                transformOrigin: "50% 280px",
                 transform: `translateX(-50%) rotate(${i * 30}deg)`,
               }}
             />
           ))}
 
-          {/* Clock center */}
-          <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-primary/30 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+          {/* Numbers around the clock */}
+          {Array.from({ length: 12 }).map((_, i) => (
+            <div
+              key={i}
+              className="absolute text-primary/10 text-2xl font-bold"
+              style={{
+                top: "50px",
+                left: "50%",
+                transformOrigin: "50% 250px",
+                transform: `translateX(-50%) rotate(${i * 30}deg)`,
+              }}
+            >
+              <span
+                style={{
+                  transform: `rotate(${-i * 30}deg)`,
+                  display: "inline-block",
+                }}
+              >
+                {i === 0 ? 12 : i}
+              </span>
+            </div>
+          ))}
 
-          {/* Clock hands properly sized for smaller clock */}
-          <div className="absolute top-1/2 left-1/2 w-1 h-20 bg-gradient-to-t from-primary/20 to-primary/10 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin-slow"></div>
-          <div className="absolute top-1/2 left-1/2 w-0.5 h-16 bg-gradient-to-t from-primary/15 to-primary/8 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin"></div>
+          {/* Clock center */}
+          <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-primary/20 rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_rgba(46,184,46,0.1)]"></div>
+
+          {/* Clock hands properly sized and animated */}
+          <div className="absolute top-1/2 left-1/2 w-2 h-40 bg-gradient-to-t from-primary/15 to-primary/5 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin-slow rounded-full"></div>
+          <div className="absolute top-1/2 left-1/2 w-1.5 h-32 bg-gradient-to-t from-primary/12 to-primary/4 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin rounded-full"></div>
           <div
-            className="absolute top-1/2 left-1/2 w-0.5 h-22 bg-red-500/10 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin"
-            style={{ animationDuration: "1s" }}
+            className="absolute top-1/2 left-1/2 w-0.5 h-36 bg-red-500/8 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin rounded-full"
+            style={{ animationDuration: "2s" }}
           ></div>
         </div>
       </div>
@@ -99,7 +123,7 @@ const TimelineSection = () => {
             </div>
           </div>
 
-          <div className="space-y-32">
+          <div className="space-y-20">
             {timelineData.map((item, index) => (
               <AnimatedText key={index} delay={index * 200}>
                 <div
