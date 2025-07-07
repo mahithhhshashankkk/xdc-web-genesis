@@ -691,27 +691,15 @@ const BlogSection = () => {
   );
 };
 
-const Index = () => {
+const Index = ({ onNavigate, isTransitioning }: IndexProps) => {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Header
+        onLogoClick={() => onNavigate?.("/")}
+        isTransitioning={isTransitioning}
+      />
       <section id="hero">
         <HeroSection />
-      </section>
-      <section id="image-section">
-        <ImageHoverSection />
-      </section>
-      <section id="about">
-        <HealthEcologySection />
-      </section>
-      <section id="services">
-        <SolutionsSection />
-      </section>
-      <section id="blog">
-        <BlogSection />
-      </section>
-      <section id="contact">
-        <SocialMediaSection />
       </section>
       <PartnersSection />
       <Footer />
