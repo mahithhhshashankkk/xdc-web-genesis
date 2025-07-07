@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 import AnimatedText from "@/components/AnimatedText";
 
 const TransparencySection = () => {
@@ -74,7 +75,11 @@ const TransparencySection = () => {
                 size="lg"
                 className="border-primary/30 text-primary hover:bg-primary hover:text-white transition-all duration-300 group relative overflow-hidden"
               >
-                <span className="relative z-10">JOIN WAITLIST</span>
+                <span className="relative z-10 flex items-center gap-3">
+                  <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-2" />
+                  <span>JOIN WAITLIST</span>
+                  <ArrowRight className="w-4 h-4 opacity-0 -translate-x-6 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+                </span>
                 <div className="absolute inset-0 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
               </Button>
             </AnimatedText>
