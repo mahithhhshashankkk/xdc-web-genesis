@@ -31,15 +31,38 @@ const TimelineSection = () => {
 
   return (
     <section className="py-24 bg-background relative overflow-hidden">
-      {/* Background Clock Animation */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-5">
-        <div className="relative w-96 h-96">
-          <div className="absolute inset-0 border-2 border-primary rounded-full animate-spin-slow"></div>
-          <div className="absolute inset-4 border border-primary/50 rounded-full animate-pulse"></div>
-          <div className="absolute inset-8 border border-primary/30 rounded-full animate-spin-reverse"></div>
-          {/* Clock hands */}
-          <div className="absolute top-1/2 left-1/2 w-1 h-24 bg-primary transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin-slow"></div>
-          <div className="absolute top-1/2 left-1/2 w-0.5 h-16 bg-primary/70 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin"></div>
+      {/* Enhanced Background Clock Animation */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-8">
+        <div className="relative w-[500px] h-[500px]">
+          {/* Outer rings with glow */}
+          <div className="absolute inset-0 border-4 border-primary/40 rounded-full animate-spin-slow shadow-[0_0_50px_rgba(46,184,46,0.3)]"></div>
+          <div className="absolute inset-8 border-2 border-primary/60 rounded-full animate-spin-reverse shadow-[0_0_30px_rgba(46,184,46,0.2)]"></div>
+          <div className="absolute inset-16 border border-primary/80 rounded-full animate-pulse"></div>
+
+          {/* Hour markers */}
+          {Array.from({ length: 12 }).map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-8 bg-primary/50"
+              style={{
+                top: "10px",
+                left: "50%",
+                transformOrigin: "50% 240px",
+                transform: `translateX(-50%) rotate(${i * 30}deg)`,
+              }}
+            />
+          ))}
+
+          {/* Clock center */}
+          <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-[0_0_20px_rgba(46,184,46,0.6)]"></div>
+
+          {/* Clock hands with glow */}
+          <div className="absolute top-1/2 left-1/2 w-1.5 h-32 bg-gradient-to-t from-primary to-primary/60 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin-slow shadow-[0_0_15px_rgba(46,184,46,0.4)]"></div>
+          <div className="absolute top-1/2 left-1/2 w-1 h-24 bg-gradient-to-t from-primary to-primary/80 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin shadow-[0_0_10px_rgba(46,184,46,0.3)]"></div>
+          <div
+            className="absolute top-1/2 left-1/2 w-0.5 h-36 bg-red-500 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin"
+            style={{ animationDuration: "1s" }}
+          ></div>
         </div>
       </div>
 
@@ -51,10 +74,16 @@ const TimelineSection = () => {
           </h2>
         </AnimatedText>
 
-        {/* Timeline */}
+        {/* Timeline Tree */}
         <div className="relative">
-          {/* Central line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary/30 via-primary to-primary/30"></div>
+          {/* Tree Trunk */}
+          <div
+            className="absolute left-1/2 transform -translate-x-1/2 w-4 bg-gradient-to-b from-primary/80 via-primary to-primary/60 rounded-full"
+            style={{ height: "100%", top: "10%" }}
+          >
+            {/* Tree rings */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/20 to-transparent rounded-full"></div>
+          </div>
 
           <div className="space-y-24">
             {timelineData.map((item, index) => (
@@ -79,10 +108,29 @@ const TimelineSection = () => {
                     </div>
                   </div>
 
-                  {/* Center dot */}
+                  {/* Tree Branch and Leaf */}
                   <div className="relative flex items-center justify-center">
-                    <div className="w-6 h-6 bg-primary rounded-full border-4 border-background shadow-lg relative z-10">
-                      <div className="absolute inset-0 bg-primary rounded-full animate-ping opacity-20"></div>
+                    {/* Branch extending from trunk */}
+                    <div
+                      className={`absolute w-16 h-1 bg-gradient-to-r ${index % 2 === 0 ? "from-primary to-primary/60 -left-8" : "from-primary/60 to-primary -right-8"} rounded-full`}
+                    ></div>
+
+                    {/* Leaf/Node */}
+                    <div className="relative z-10">
+                      <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary/80 rounded-full shadow-lg relative">
+                        <div className="absolute inset-0 bg-primary rounded-full animate-pulse opacity-30"></div>
+                        {/* Leaf veins */}
+                        <div className="absolute inset-1 border border-white/30 rounded-full"></div>
+                        <div className="absolute top-1/2 left-1/2 w-1 h-4 bg-white/40 transform -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
+                      </div>
+
+                      {/* Small branches */}
+                      <div
+                        className={`absolute top-1/2 ${index % 2 === 0 ? "-right-2" : "-left-2"} w-3 h-0.5 bg-primary/60 transform -translate-y-1/2 rotate-45`}
+                      ></div>
+                      <div
+                        className={`absolute top-1/2 ${index % 2 === 0 ? "-right-2" : "-left-2"} w-3 h-0.5 bg-primary/60 transform -translate-y-1/2 -rotate-45`}
+                      ></div>
                     </div>
                   </div>
 
@@ -91,6 +139,16 @@ const TimelineSection = () => {
                 </div>
               </AnimatedText>
             ))}
+          </div>
+
+          {/* Tree Crown */}
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4">
+            <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/60 rounded-full shadow-lg relative">
+              <div className="absolute inset-0 bg-primary/30 rounded-full animate-pulse"></div>
+              <div className="absolute inset-2 border-2 border-white/30 rounded-full"></div>
+              <div className="absolute top-1/2 left-1/2 w-2 h-6 bg-white/40 transform -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
+              <div className="absolute top-1/2 left-1/2 w-6 h-2 bg-white/40 transform -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
+            </div>
           </div>
         </div>
       </div>
