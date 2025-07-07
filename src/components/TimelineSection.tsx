@@ -68,7 +68,10 @@ const TimelineSection = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <AnimatedText className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-6">
+          <h2
+            className="text-3xl md:text-4xl lg:text-5xl font-light mb-6"
+            style={{ fontFamily: "Georgia, serif" }}
+          >
             Altibbe story timeline -<br />
             <span className="text-primary">Empathizing with Humanity</span>
           </h2>
