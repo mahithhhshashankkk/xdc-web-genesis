@@ -9,146 +9,59 @@ interface HeaderProps {
   isTransitioning?: boolean;
 }
 
-const Header = () => {
+const Header = ({ onLogoClick, isTransitioning = false }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [isAtTop, setIsAtTop] = useState(true);
-
-  useEffect(() => {
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const currentScrollY = window.scrollY;
-          const heroSectionHeight = window.innerHeight; // Approximate hero section height
-
-          // Check if we're at the very top
-          setIsAtTop(currentScrollY < 10);
-
-          // If we're within the hero section, keep header visible
-          if (currentScrollY <= heroSectionHeight) {
-            setIsVisible(true);
-          } else {
-            // Past hero section - show/hide based on scroll direction
-            if (currentScrollY > lastScrollY) {
-              // Scrolling down - hide header
-              setIsVisible(false);
-            } else {
-              // Scrolling up - show header
-              setIsVisible(true);
-            }
-          }
-
-          setLastScrollY(currentScrollY);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScrollY]);
+  const location = useLocation();
 
   const navigationItems = [
     {
-      label: "Home",
-      hasDropdown: false,
-      items: [],
-      sectionId: "hero",
-    },
-    {
       label: "Hedamo",
-      hasDropdown: true,
-      items: ["Organic Farms", "Health Reviews", "Transparency Labels"],
-      sectionId: "image-section",
-    },
-    {
-      label: "Services",
-      hasDropdown: true,
-      items: ["Farm Consulting", "Health Reporting", "Global Market Access"],
-      sectionId: "services",
-    },
-    {
-      label: "About",
-      hasDropdown: true,
-      items: ["Our Mission", "Team", "Innovation"],
-      sectionId: "about",
+      path: "/hedamo",
     },
     {
       label: "Blog",
-      hasDropdown: false,
-      items: [],
-      sectionId: "blog",
+      path: "/blog",
     },
     {
-      label: "Contact",
-      hasDropdown: false,
-      items: [],
-      sectionId: "contact",
+      label: "Contact Us",
+      path: "/contact",
     },
   ];
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border shadow-sm"
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: `translate3d(0, ${isVisible ? "0" : "-100%"}, 0)`,
-        transition:
-          "opacity 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1)",
-        willChange: "opacity, transform",
-        backfaceVisibility: "hidden",
-      }}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm shadow-lg">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="text-2xl font-bold text-primary">Altibbe</div>
-          </div>
+          <Link
+            to="/"
+            onClick={onLogoClick}
+            className="flex items-center space-x-2 cursor-pointer"
+          >
+            <div
+              className={`text-3xl font-bold transition-colors duration-300 ${
+                isTransitioning ? "text-white" : "text-primary"
+              }`}
+            >
+              Altibbe
+            </div>
+          </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          {/* Desktop Navigation - Centered */}
+          <nav className="hidden lg:flex items-center justify-center space-x-12 absolute left-1/2 transform -translate-x-1/2">
             {navigationItems.map((item, index) => (
-              <div key={index} className="relative group">
-                <button
-                  className="flex items-center space-x-1 text-foreground/80 hover:text-primary transition-all duration-300 font-medium"
-                  onClick={() =>
-                    item.sectionId && scrollToSection(item.sectionId)
-                  }
-                >
-                  <span>{item.label}</span>
-                  {item.hasDropdown && (
-                    <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
-                  )}
-                </button>
-
-                {item.hasDropdown && (
-                  <div className="absolute top-full left-0 mt-3 w-56 bg-background/95 backdrop-blur-sm border border-primary/20 rounded-lg shadow-glow opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
-                    <div className="py-3">
-                      {item.items?.map((subItem, subIndex) => (
-                        <button
-                          key={subIndex}
-                          onClick={() =>
-                            item.sectionId && scrollToSection(item.sectionId)
-                          }
-                          className="block w-full text-left px-4 py-3 text-sm text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all duration-200 relative overflow-hidden group/item"
-                        >
-                          <span className="relative z-10">{subItem}</span>
-                          <div className="absolute inset-0 bg-primary/5 transform -translate-x-full group-hover/item:translate-x-0 transition-transform duration-300"></div>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
+              <Link
+                key={index}
+                to={item.path}
+                className={`text-lg font-medium transition-all duration-300 hover:text-primary ${
+                  location.pathname === item.path
+                    ? "text-primary"
+                    : "text-foreground/80"
+                }`}
+              >
+                {item.label}
+              </Link>
             ))}
           </nav>
 
@@ -200,38 +113,18 @@ const Header = () => {
 
               {/* Mobile Navigation */}
               {navigationItems.map((item, index) => (
-                <div key={index} className="space-y-2">
-                  <button
-                    className="flex items-center justify-between w-full text-left text-foreground hover:text-primary transition-colors"
-                    onClick={() => {
-                      if (item.sectionId) {
-                        scrollToSection(item.sectionId);
-                        setIsMenuOpen(false);
-                      }
-                    }}
-                  >
-                    <span>{item.label}</span>
-                    {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
-                  </button>
-                  {item.hasDropdown && (
-                    <div className="pl-4 space-y-2">
-                      {item.items?.map((subItem, subIndex) => (
-                        <button
-                          key={subIndex}
-                          onClick={() => {
-                            if (item.sectionId) {
-                              scrollToSection(item.sectionId);
-                              setIsMenuOpen(false);
-                            }
-                          }}
-                          className="block w-full text-left text-sm text-muted-foreground hover:text-primary transition-colors"
-                        >
-                          {subItem}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                <Link
+                  key={index}
+                  to={item.path}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`text-lg font-medium transition-colors hover:text-primary ${
+                    location.pathname === item.path
+                      ? "text-primary"
+                      : "text-foreground"
+                  }`}
+                >
+                  {item.label}
+                </Link>
               ))}
             </div>
           </div>
