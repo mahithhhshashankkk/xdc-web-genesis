@@ -1,226 +1,151 @@
-import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef, useMemo, Component, ReactNode } from "react";
-import * as THREE from "three";
+import { useEffect, useState } from "react";
 
-// Error boundary for Three.js components
-class ThreeErrorBoundary extends Component<
-  { children: ReactNode },
-  { hasError: boolean }
-> {
-  constructor(props: { children: ReactNode }) {
-    super(props);
-    this.state = { hasError: false };
-  }
+const HealthBackground = () => {
+  const [molecules, setMolecules] = useState([]);
+  const [leaves, setLeaves] = useState([]);
 
-  static getDerivedStateFromError() {
-    return { hasError: true };
-  }
+  useEffect(() => {
+    // Generate floating molecules
+    const moleculeData = Array.from({ length: 20 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 30 + 20,
+      delay: Math.random() * 5,
+      duration: Math.random() * 10 + 15,
+    }));
 
-  componentDidCatch(error: Error, errorInfo: any) {
-    console.warn("Three.js error caught:", error, errorInfo);
-  }
+    // Generate floating leaves
+    const leafData = Array.from({ length: 15 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 25 + 15,
+      delay: Math.random() * 3,
+      duration: Math.random() * 8 + 12,
+      rotation: Math.random() * 360,
+    }));
 
-  render() {
-    if (this.state.hasError) {
-      return null; // Render nothing on error to prevent app crash
-    }
-
-    return this.props.children;
-  }
-}
-
-// Animated particle field component
-function ParticleField() {
-  const ref = useRef<THREE.Points>(null);
-
-  // Generate random positions for particles
-  const [positions, colors] = useMemo(() => {
-    const positions = new Float32Array(2000 * 3);
-    const colors = new Float32Array(2000 * 3);
-
-    for (let i = 0; i < 2000; i++) {
-      // Random positions in a sphere
-      const x = (Math.random() - 0.5) * 10;
-      const y = (Math.random() - 0.5) * 10;
-      const z = (Math.random() - 0.5) * 10;
-
-      positions[i * 3] = x;
-      positions[i * 3 + 1] = y;
-      positions[i * 3 + 2] = z;
-
-      // Cyan-ish colors with variation
-      colors[i * 3] = 0.2 + Math.random() * 0.3; // R
-      colors[i * 3 + 1] = 0.8 + Math.random() * 0.2; // G
-      colors[i * 3 + 2] = 0.9 + Math.random() * 0.1; // B
-    }
-
-    return [positions, colors];
+    setMolecules(moleculeData);
+    setLeaves(leafData);
   }, []);
 
-  // Animate the particles
-  useFrame((state) => {
-    if (ref.current) {
-      ref.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.1) * 0.1;
-      ref.current.rotation.y = state.clock.elapsedTime * 0.05;
-      ref.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.08) * 0.05;
-    }
-  });
-
   return (
-    <points ref={ref}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={positions.length / 3}
-          array={positions}
-          itemSize={3}
-        />
-        <bufferAttribute
-          attach="attributes-color"
-          count={colors.length / 3}
-          array={colors}
-          itemSize={3}
-        />
-      </bufferGeometry>
-      <pointsMaterial
-        size={0.02}
-        vertexColors
-        transparent
-        opacity={0.6}
-        sizeAttenuation={true}
-        depthWrite={false}
-        blending={THREE.AdditiveBlending}
-      />
-    </points>
-  );
-}
-
-// Rotating geometric shapes
-function FloatingGeometry() {
-  const meshRef = useRef<THREE.Mesh>(null);
-
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.elapsedTime * 0.2;
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.1;
-      meshRef.current.position.y =
-        Math.sin(state.clock.elapsedTime * 0.5) * 0.5;
-    }
-  });
-
-  return (
-    <mesh ref={meshRef} position={[3, 0, -2]}>
-      <torusKnotGeometry args={[0.5, 0.2, 128, 16]} />
-      <meshStandardMaterial
-        color="#00ffff"
-        wireframe
-        transparent
-        opacity={0.3}
-      />
-    </mesh>
-  );
-}
-
-// Network connection lines
-function NetworkLines() {
-  const ref = useRef<THREE.LineSegments>(null);
-
-  const geometry = useMemo(() => {
-    const points = [];
-    const colors = [];
-
-    // Create interconnected lines
-    for (let i = 0; i < 50; i++) {
-      const start = new THREE.Vector3(
-        (Math.random() - 0.5) * 8,
-        (Math.random() - 0.5) * 6,
-        (Math.random() - 0.5) * 6,
-      );
-      const end = new THREE.Vector3(
-        (Math.random() - 0.5) * 8,
-        (Math.random() - 0.5) * 6,
-        (Math.random() - 0.5) * 6,
-      );
-
-      points.push(start.x, start.y, start.z);
-      points.push(end.x, end.y, end.z);
-
-      // Cyan color for lines
-      colors.push(0, 1, 1, 0, 1, 1);
-    }
-
-    const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute(
-      "position",
-      new THREE.Float32BufferAttribute(points, 3),
-    );
-    geometry.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
-
-    return geometry;
-  }, []);
-
-  useFrame((state) => {
-    if (ref.current) {
-      ref.current.rotation.y = state.clock.elapsedTime * 0.02;
-    }
-  });
-
-  return (
-    <lineSegments ref={ref} geometry={geometry}>
-      <lineBasicMaterial
-        vertexColors
-        transparent
-        opacity={0.2}
-        blending={THREE.AdditiveBlending}
-      />
-    </lineSegments>
-  );
-}
-
-// Main 3D background component
-export default function HeroBackground3D() {
-  return (
-    <div className="absolute inset-0 opacity-40">
-      <ThreeErrorBoundary>
-        <Canvas
-          camera={{ position: [0, 0, 5], fov: 75 }}
-          gl={{ antialias: true, alpha: true }}
-          style={{ background: "transparent" }}
+    <div className="absolute inset-0 w-full h-full overflow-hidden opacity-20">
+      {/* Floating Molecules (Health/Medicine theme) */}
+      {molecules.map((molecule) => (
+        <div
+          key={`molecule-${molecule.id}`}
+          className="absolute animate-float"
+          style={{
+            left: `${molecule.x}%`,
+            top: `${molecule.y}%`,
+            animationDelay: `${molecule.delay}s`,
+            animationDuration: `${molecule.duration}s`,
+          }}
         >
-          <ambientLight intensity={0.3} />
-          <pointLight position={[10, 10, 10]} intensity={1} color="#00ffff" />
-          <pointLight
-            position={[-10, -10, -10]}
-            intensity={0.5}
-            color="#0088ff"
-          />
+          <div
+            className="relative"
+            style={{
+              width: `${molecule.size}px`,
+              height: `${molecule.size}px`,
+            }}
+          >
+            {/* Central atom */}
+            <div className="absolute top-1/2 left-1/2 w-3 h-3 bg-primary rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_rgba(76,175,80,0.6)]"></div>
 
-          <ParticleField />
-          <NetworkLines />
-          <FloatingGeometry />
+            {/* Electron orbits */}
+            <div className="absolute inset-0 border border-primary/40 rounded-full animate-spin-slow"></div>
+            <div className="absolute inset-2 border border-primary/30 rounded-full animate-spin-reverse"></div>
 
-          {/* Additional floating spheres */}
-          <mesh position={[-3, 2, -1]}>
-            <sphereGeometry args={[0.3, 32, 32]} />
-            <meshStandardMaterial
-              color="#00ffff"
-              wireframe
-              transparent
-              opacity={0.2}
-            />
-          </mesh>
+            {/* Electrons */}
+            <div className="absolute top-0 left-1/2 w-1.5 h-1.5 bg-primary/80 rounded-full transform -translate-x-1/2 animate-spin-slow"></div>
+            <div className="absolute bottom-0 left-1/2 w-1.5 h-1.5 bg-primary/80 rounded-full transform -translate-x-1/2 animate-spin-slow"></div>
+          </div>
+        </div>
+      ))}
 
-          <mesh position={[2, -2, -3]}>
-            <sphereGeometry args={[0.2, 32, 32]} />
-            <meshStandardMaterial
-              color="#0088ff"
-              wireframe
-              transparent
-              opacity={0.3}
-            />
-          </mesh>
-        </Canvas>
-      </ThreeErrorBoundary>
+      {/* Floating Leaves (Nature theme) */}
+      {leaves.map((leaf) => (
+        <div
+          key={`leaf-${leaf.id}`}
+          className="absolute animate-float-reverse"
+          style={{
+            left: `${leaf.x}%`,
+            top: `${leaf.y}%`,
+            animationDelay: `${leaf.delay}s`,
+            animationDuration: `${leaf.duration}s`,
+            transform: `rotate(${leaf.rotation}deg)`,
+          }}
+        >
+          <div
+            className="relative text-primary/60"
+            style={{
+              fontSize: `${leaf.size}px`,
+            }}
+          >
+            🍃
+          </div>
+        </div>
+      ))}
+
+      {/* DNA Helix animation */}
+      <div className="absolute top-1/4 right-1/4 w-32 h-64 opacity-30">
+        <div className="relative h-full">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-full flex justify-between items-center"
+              style={{
+                top: `${i * 12.5}%`,
+                animationDelay: `${i * 0.2}s`,
+              }}
+            >
+              <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
+              <div className="flex-1 h-0.5 bg-gradient-to-r from-primary/60 to-primary/20 mx-2"></div>
+              <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Hygiene bubbles */}
+      <div className="absolute bottom-1/4 left-1/4">
+        {Array.from({ length: 12 }).map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-4 h-4 border-2 border-primary/40 rounded-full animate-bounce"
+            style={{
+              left: `${(i % 4) * 30}px`,
+              top: `${Math.floor(i / 4) * 30}px`,
+              animationDelay: `${i * 0.3}s`,
+              animationDuration: `${2 + Math.random() * 2}s`,
+            }}
+          >
+            <div className="absolute inset-1 bg-primary/20 rounded-full"></div>
+          </div>
+        ))}
+      </div>
+
+      {/* Medical cross symbols */}
+      <div className="absolute top-1/3 left-1/3 opacity-40">
+        <div className="relative w-8 h-8 animate-pulse">
+          <div className="absolute top-1/2 left-0 w-full h-1 bg-primary transform -translate-y-1/2"></div>
+          <div className="absolute top-0 left-1/2 w-1 h-full bg-primary transform -translate-x-1/2"></div>
+        </div>
+      </div>
+
+      <div className="absolute bottom-1/3 right-1/3 opacity-40">
+        <div
+          className="relative w-6 h-6 animate-pulse"
+          style={{ animationDelay: "1s" }}
+        >
+          <div className="absolute top-1/2 left-0 w-full h-1 bg-primary transform -translate-y-1/2"></div>
+          <div className="absolute top-0 left-1/2 w-1 h-full bg-primary transform -translate-x-1/2"></div>
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default HealthBackground;
