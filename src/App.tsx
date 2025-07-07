@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PageTransition from "./components/PageTransition";
 import Index from "./pages/Index";
 import Hedamo from "./pages/Hedamo";
 import Services from "./pages/Services";
@@ -18,14 +19,16 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/hedamo" element={<Hedamo />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <PageTransition>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/hedamo" element={<Hedamo />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </PageTransition>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
