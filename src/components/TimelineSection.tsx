@@ -142,13 +142,13 @@ const TimelineSection = () => {
                       </div>
                       <h3
                         className="text-xl md:text-2xl font-semibold text-foreground leading-tight"
-                        style={{ fontFamily: "Crimson Text, serif" }}
+                        style={{ fontFamily: "Playfair Display, serif" }}
                       >
                         {item.title}
                       </h3>
                       <p
                         className="text-muted-foreground leading-relaxed text-base"
-                        style={{ fontFamily: "Source Serif Pro, serif" }}
+                        style={{ fontFamily: "PT Sans, sans-serif" }}
                       >
                         {item.description}
                       </p>
