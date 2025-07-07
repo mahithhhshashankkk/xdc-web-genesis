@@ -1,26 +1,13 @@
 import { useState, useEffect } from "react";
-import { Search, ChevronDown, Menu, X } from "lucide-react";
+import { Search, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Link, useLocation } from "react-router-dom";
 
-// Smooth scroll to section with animation
-const scrollToSection = (sectionId: string) => {
-  const element = document.getElementById(sectionId);
-  if (element) {
-    const headerHeight = 80; // Account for fixed header
-    const targetPosition = element.offsetTop - headerHeight;
-
-    window.scrollTo({
-      top: targetPosition,
-      behavior: "smooth",
-    });
-
-    // Add animation trigger
-    setTimeout(() => {
-      element.classList.add("animate-in");
-    }, 300);
-  }
-};
+interface HeaderProps {
+  onLogoClick?: () => void;
+  isTransitioning?: boolean;
+}
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
