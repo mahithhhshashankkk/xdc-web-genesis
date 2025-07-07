@@ -31,41 +31,39 @@ const TimelineSection = () => {
 
   return (
     <section className="py-16 bg-background relative overflow-hidden">
-      {/* Enhanced Background Clock Animation - Smaller and Very Translucent */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-3">
+      {/* Subtle Background Clock - Static Design */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-2">
         <div className="relative w-[400px] h-[400px]">
-          {/* Outer rings with very subtle effects */}
-          <div className="absolute inset-0 border-2 border-primary/8 rounded-full animate-spin-slow"></div>
-          <div className="absolute inset-6 border border-primary/6 rounded-full animate-spin-reverse"></div>
-          <div className="absolute inset-12 border border-primary/4 rounded-full animate-pulse"></div>
-          <div className="absolute inset-16 border border-primary/3 rounded-full"></div>
+          {/* Clock face - simple circle */}
+          <div className="absolute inset-0 border border-primary/4 rounded-full"></div>
 
-          {/* Hour markers */}
+          {/* Hour markers - 12 simple lines */}
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}
-              className="absolute w-0.5 h-8 bg-primary/8"
+              className="absolute w-0.5 h-6 bg-primary/5"
               style={{
-                top: "15px",
+                top: "20px",
                 left: "50%",
-                transformOrigin: "50% 185px",
+                transformOrigin: "50% 180px",
                 transform: `translateX(-50%) rotate(${i * 30}deg)`,
               }}
             />
           ))}
 
-          {/* Numbers around the clock */}
+          {/* Clock numbers - very translucent */}
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}
-              className="absolute text-primary/8 text-lg font-bold"
+              className="absolute text-primary/3 text-sm font-normal"
               style={{
-                top: "35px",
+                top: "40px",
                 left: "50%",
-                transformOrigin: "50% 165px",
+                transformOrigin: "50% 160px",
                 transform: `translateX(-50%) rotate(${i * 30}deg)`,
               }}
             >
+              {/* Counter-rotate the number to keep it upright */}
               <span
                 style={{
                   transform: `rotate(${-i * 30}deg)`,
@@ -77,15 +75,15 @@ const TimelineSection = () => {
             </div>
           ))}
 
-          {/* Clock center */}
-          <div className="absolute top-1/2 left-1/2 w-3 h-3 bg-primary/15 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+          {/* Clock center dot */}
+          <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-primary/8 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
 
-          {/* Clock hands properly sized for smaller clock */}
-          <div className="absolute top-1/2 left-1/2 w-1.5 h-28 bg-gradient-to-t from-primary/12 to-primary/4 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin-slow rounded-full"></div>
-          <div className="absolute top-1/2 left-1/2 w-1 h-22 bg-gradient-to-t from-primary/10 to-primary/3 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin rounded-full"></div>
+          {/* Static clock needle pointing to 2 o'clock */}
           <div
-            className="absolute top-1/2 left-1/2 w-0.5 h-24 bg-red-500/6 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin rounded-full"
-            style={{ animationDuration: "2s" }}
+            className="absolute top-1/2 left-1/2 w-0.5 h-20 bg-primary/6 transform -translate-x-1/2 -translate-y-full origin-bottom rounded-full"
+            style={{
+              transform: "translateX(-50%) translateY(-100%) rotate(60deg)",
+            }}
           ></div>
         </div>
       </div>
