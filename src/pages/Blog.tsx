@@ -143,14 +143,18 @@ const Blog = () => {
       <main className="pt-20">
         <section className="py-16">
           <div className="container mx-auto px-6 text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light mb-6">
-              Health <span className="text-primary">Blog</span>
-            </h1>
-            <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-              Discover the latest insights, trends, and innovations in health
-              technology, organic agriculture, and sustainable wellness
-              practices.
-            </p>
+            <AnimatedText delay={300}>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light mb-6">
+                Health <span className="text-primary">Blog</span>
+              </h1>
+            </AnimatedText>
+            <AnimatedText delay={600}>
+              <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto">
+                Discover the latest insights, trends, and innovations in health
+                technology, organic agriculture, and sustainable wellness
+                practices.
+              </p>
+            </AnimatedText>
           </div>
         </section>
         <BlogSection />
