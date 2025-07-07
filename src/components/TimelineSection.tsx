@@ -31,24 +31,24 @@ const TimelineSection = () => {
 
   return (
     <section className="py-16 bg-background relative overflow-hidden">
-      {/* Enhanced Background Clock Animation - Large but Very Translucent */}
+      {/* Enhanced Background Clock Animation - Smaller and Very Translucent */}
       <div className="absolute inset-0 flex items-center justify-center opacity-3">
-        <div className="relative w-[600px] h-[600px]">
+        <div className="relative w-[400px] h-[400px]">
           {/* Outer rings with very subtle effects */}
           <div className="absolute inset-0 border-2 border-primary/8 rounded-full animate-spin-slow"></div>
-          <div className="absolute inset-8 border border-primary/6 rounded-full animate-spin-reverse"></div>
-          <div className="absolute inset-16 border border-primary/4 rounded-full animate-pulse"></div>
-          <div className="absolute inset-24 border border-primary/3 rounded-full"></div>
+          <div className="absolute inset-6 border border-primary/6 rounded-full animate-spin-reverse"></div>
+          <div className="absolute inset-12 border border-primary/4 rounded-full animate-pulse"></div>
+          <div className="absolute inset-16 border border-primary/3 rounded-full"></div>
 
           {/* Hour markers */}
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}
-              className="absolute w-1 h-12 bg-primary/8"
+              className="absolute w-0.5 h-8 bg-primary/8"
               style={{
-                top: "20px",
+                top: "15px",
                 left: "50%",
-                transformOrigin: "50% 280px",
+                transformOrigin: "50% 185px",
                 transform: `translateX(-50%) rotate(${i * 30}deg)`,
               }}
             />
@@ -58,11 +58,11 @@ const TimelineSection = () => {
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}
-              className="absolute text-primary/10 text-2xl font-bold"
+              className="absolute text-primary/8 text-lg font-bold"
               style={{
-                top: "50px",
+                top: "35px",
                 left: "50%",
-                transformOrigin: "50% 250px",
+                transformOrigin: "50% 165px",
                 transform: `translateX(-50%) rotate(${i * 30}deg)`,
               }}
             >
@@ -78,13 +78,13 @@ const TimelineSection = () => {
           ))}
 
           {/* Clock center */}
-          <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-primary/20 rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_rgba(46,184,46,0.1)]"></div>
+          <div className="absolute top-1/2 left-1/2 w-3 h-3 bg-primary/15 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
 
-          {/* Clock hands properly sized and animated */}
-          <div className="absolute top-1/2 left-1/2 w-2 h-40 bg-gradient-to-t from-primary/15 to-primary/5 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin-slow rounded-full"></div>
-          <div className="absolute top-1/2 left-1/2 w-1.5 h-32 bg-gradient-to-t from-primary/12 to-primary/4 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin rounded-full"></div>
+          {/* Clock hands properly sized for smaller clock */}
+          <div className="absolute top-1/2 left-1/2 w-1.5 h-28 bg-gradient-to-t from-primary/12 to-primary/4 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin-slow rounded-full"></div>
+          <div className="absolute top-1/2 left-1/2 w-1 h-22 bg-gradient-to-t from-primary/10 to-primary/3 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin rounded-full"></div>
           <div
-            className="absolute top-1/2 left-1/2 w-0.5 h-36 bg-red-500/8 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin rounded-full"
+            className="absolute top-1/2 left-1/2 w-0.5 h-24 bg-red-500/6 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin rounded-full"
             style={{ animationDuration: "2s" }}
           ></div>
         </div>
