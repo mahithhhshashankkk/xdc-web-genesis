@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import HeroBackground3D from "./HeroBackground3D";
+import HealthBackground from "./HeroBackground3D";
 import { useEffect, useRef, useState } from "react";
 
 // Animated Text Component for Hero
@@ -53,8 +53,8 @@ const AnimatedHeroText = ({
 const HeroSection = () => {
   return (
     <section className="relative h-screen bg-gradient-hero overflow-hidden pt-24">
-      {/* 3D Animated Background */}
-      <HeroBackground3D />
+      {/* Health Animated Background */}
+      <HealthBackground />
 
       {/* Background glow effects */}
       <div className="absolute inset-0 bg-gradient-glow opacity-15"></div>
