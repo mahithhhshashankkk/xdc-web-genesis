@@ -3,18 +3,10 @@ import HeroSection from "@/components/HeroSection";
 import PartnersSection from "@/components/PartnersSection";
 import Footer from "@/components/Footer";
 
-interface IndexProps {
-  onNavigate?: (path: string) => void;
-  isTransitioning?: boolean;
-}
-
-const Index = ({ onNavigate, isTransitioning }: IndexProps) => {
+const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Header
-        onLogoClick={() => onNavigate?.("/")}
-        isTransitioning={isTransitioning}
-      />
+      <Header />
       <section id="hero">
         <HeroSection />
       </section>

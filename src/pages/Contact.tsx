@@ -2,18 +2,10 @@ import Header from "@/components/Header";
 import SocialMediaSection from "@/components/SocialMediaSection";
 import Footer from "@/components/Footer";
 
-interface ContactProps {
-  onNavigate?: (path: string) => void;
-  isTransitioning?: boolean;
-}
-
-const Contact = ({ onNavigate, isTransitioning }: ContactProps) => {
+const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Header
-        onLogoClick={() => onNavigate?.("/")}
-        isTransitioning={isTransitioning}
-      />
+      <Header />
       <main className="pt-20">
         <section className="py-16">
           <div className="container mx-auto px-6 text-center">
