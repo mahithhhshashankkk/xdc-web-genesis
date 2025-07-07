@@ -31,36 +31,36 @@ const TimelineSection = () => {
 
   return (
     <section className="py-24 bg-background relative overflow-hidden">
-      {/* Enhanced Background Clock Animation */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-8">
-        <div className="relative w-[500px] h-[500px]">
-          {/* Outer rings with glow */}
-          <div className="absolute inset-0 border-4 border-primary/40 rounded-full animate-spin-slow shadow-[0_0_50px_rgba(46,184,46,0.3)]"></div>
-          <div className="absolute inset-8 border-2 border-primary/60 rounded-full animate-spin-reverse shadow-[0_0_30px_rgba(46,184,46,0.2)]"></div>
-          <div className="absolute inset-16 border border-primary/80 rounded-full animate-pulse"></div>
+      {/* Enhanced Background Clock Animation - Smaller and More Translucent */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-5">
+        <div className="relative w-[300px] h-[300px]">
+          {/* Outer rings with subtle glow */}
+          <div className="absolute inset-0 border-2 border-primary/20 rounded-full animate-spin-slow shadow-[0_0_20px_rgba(46,184,46,0.1)]"></div>
+          <div className="absolute inset-6 border border-primary/15 rounded-full animate-spin-reverse shadow-[0_0_15px_rgba(46,184,46,0.08)]"></div>
+          <div className="absolute inset-12 border border-primary/10 rounded-full animate-pulse"></div>
 
           {/* Hour markers */}
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}
-              className="absolute w-1 h-8 bg-primary/50"
+              className="absolute w-0.5 h-6 bg-primary/15"
               style={{
-                top: "10px",
+                top: "8px",
                 left: "50%",
-                transformOrigin: "50% 240px",
+                transformOrigin: "50% 142px",
                 transform: `translateX(-50%) rotate(${i * 30}deg)`,
               }}
             />
           ))}
 
           {/* Clock center */}
-          <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-[0_0_20px_rgba(46,184,46,0.6)]"></div>
+          <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-primary/30 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
 
-          {/* Clock hands with glow */}
-          <div className="absolute top-1/2 left-1/2 w-1.5 h-32 bg-gradient-to-t from-primary to-primary/60 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin-slow shadow-[0_0_15px_rgba(46,184,46,0.4)]"></div>
-          <div className="absolute top-1/2 left-1/2 w-1 h-24 bg-gradient-to-t from-primary to-primary/80 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin shadow-[0_0_10px_rgba(46,184,46,0.3)]"></div>
+          {/* Clock hands properly sized for smaller clock */}
+          <div className="absolute top-1/2 left-1/2 w-1 h-20 bg-gradient-to-t from-primary/20 to-primary/10 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin-slow"></div>
+          <div className="absolute top-1/2 left-1/2 w-0.5 h-16 bg-gradient-to-t from-primary/15 to-primary/8 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin"></div>
           <div
-            className="absolute top-1/2 left-1/2 w-0.5 h-36 bg-red-500 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin"
+            className="absolute top-1/2 left-1/2 w-0.5 h-22 bg-red-500/10 transform -translate-x-1/2 -translate-y-full origin-bottom animate-spin"
             style={{ animationDuration: "1s" }}
           ></div>
         </div>
