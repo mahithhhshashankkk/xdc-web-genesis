@@ -46,7 +46,7 @@ const NatureBackground = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
+    <div className="absolute inset-0 w-full h-full overflow-hidden opacity-40 pointer-events-none">
       {/* Floating Leaves */}
       {leaves.map((leaf) => (
         <div
@@ -61,7 +61,7 @@ const NatureBackground = () => {
           }}
         >
           <div
-            className="relative text-primary/60"
+            className="relative text-primary/80"
             style={{
               fontSize: `${leaf.size}px`,
             }}
@@ -85,7 +85,7 @@ const NatureBackground = () => {
           }}
         >
           <div
-            className="relative"
+            className="relative opacity-90"
             style={{
               fontSize: `${flower.size}px`,
             }}
@@ -108,7 +108,7 @@ const NatureBackground = () => {
           }}
         >
           <div
-            className="w-2 h-2 bg-primary/30 rounded-full animate-pulse"
+            className="w-2 h-2 bg-primary/60 rounded-full animate-pulse"
             style={{
               width: `${seed.size}px`,
               height: `${seed.size}px`,
@@ -118,21 +118,21 @@ const NatureBackground = () => {
       ))}
 
       {/* Organic patterns */}
-      <div className="absolute top-1/4 right-1/4 opacity-20">
+      <div className="absolute top-1/4 right-1/4 opacity-40">
         <div className="relative w-32 h-32">
           {/* Spiral organic pattern */}
-          <div className="absolute inset-0 border-2 border-primary/20 rounded-full animate-spin-slow"></div>
-          <div className="absolute inset-4 border border-primary/15 rounded-full animate-spin-reverse"></div>
-          <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-primary/30 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+          <div className="absolute inset-0 border-2 border-primary/40 rounded-full animate-spin-slow"></div>
+          <div className="absolute inset-4 border border-primary/30 rounded-full animate-spin-reverse"></div>
+          <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-primary/60 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
         </div>
       </div>
 
-      <div className="absolute bottom-1/3 left-1/3 opacity-15">
+      <div className="absolute bottom-1/3 left-1/3 opacity-30">
         <div className="relative w-24 h-24">
           {/* Leaf vein pattern */}
-          <div className="absolute top-1/2 left-0 w-full h-0.5 bg-primary/20 transform -translate-y-1/2"></div>
-          <div className="absolute top-1/4 left-1/4 w-1/2 h-0.5 bg-primary/15 transform rotate-45"></div>
-          <div className="absolute top-3/4 left-1/4 w-1/2 h-0.5 bg-primary/15 transform -rotate-45"></div>
+          <div className="absolute top-1/2 left-0 w-full h-0.5 bg-primary/40 transform -translate-y-1/2"></div>
+          <div className="absolute top-1/4 left-1/4 w-1/2 h-0.5 bg-primary/30 transform rotate-45"></div>
+          <div className="absolute top-3/4 left-1/4 w-1/2 h-0.5 bg-primary/30 transform -rotate-45"></div>
         </div>
       </div>
     </div>

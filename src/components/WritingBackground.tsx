@@ -45,7 +45,7 @@ const WritingBackground = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden opacity-15 pointer-events-none">
+    <div className="absolute inset-0 w-full h-full overflow-hidden opacity-35 pointer-events-none">
       {/* Floating Paper Sheets */}
       {papers.map((paper) => (
         <div

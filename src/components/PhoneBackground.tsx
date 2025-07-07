@@ -45,7 +45,7 @@ const PhoneBackground = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden opacity-15 pointer-events-none">
+    <div className="absolute inset-0 w-full h-full overflow-hidden opacity-35 pointer-events-none">
       {/* Floating Phones */}
       {phones.map((phone) => (
         <div
