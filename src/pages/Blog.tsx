@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedText from "@/components/AnimatedText";
+import WritingBackground from "@/components/WritingBackground";
 
 const BlogSection = () => {
   const blogPosts = [
@@ -138,7 +139,8 @@ const BlogSection = () => {
 
 const Blog = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <WritingBackground />
       <Header />
       <main className="pt-20">
         <section className="py-16">

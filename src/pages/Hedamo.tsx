@@ -3,10 +3,12 @@ import ImageHoverSection from "@/components/ImageHoverSection";
 import HealthEcologySection from "@/components/HealthEcologySection";
 import Footer from "@/components/Footer";
 import AnimatedText from "@/components/AnimatedText";
+import NatureBackground from "@/components/NatureBackground";
 
 const Hedamo = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <NatureBackground />
       <Header />
       <main className="pt-20">
         <section className="py-16">

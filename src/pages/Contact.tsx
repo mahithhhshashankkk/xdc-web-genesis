@@ -2,10 +2,12 @@ import Header from "@/components/Header";
 import SocialMediaSection from "@/components/SocialMediaSection";
 import Footer from "@/components/Footer";
 import AnimatedText from "@/components/AnimatedText";
+import PhoneBackground from "@/components/PhoneBackground";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <PhoneBackground />
       <Header />
       <main className="pt-20">
         <section className="py-16">
