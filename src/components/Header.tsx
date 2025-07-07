@@ -1,15 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Search, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link, useLocation } from "react-router-dom";
 
-interface HeaderProps {
-  onLogoClick?: () => void;
-  isTransitioning?: boolean;
-}
-
-const Header = ({ onLogoClick, isTransitioning = false }: HeaderProps) => {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const location = useLocation();
@@ -34,16 +29,8 @@ const Header = ({ onLogoClick, isTransitioning = false }: HeaderProps) => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link
-            to="/"
-            onClick={onLogoClick}
-            className="flex items-center space-x-2 cursor-pointer"
-          >
-            <div
-              className={`text-3xl font-bold transition-colors duration-300 ${
-                isTransitioning ? "text-white" : "text-primary"
-              }`}
-            >
+          <Link to="/" className="flex items-center space-x-2 cursor-pointer">
+            <div className="text-3xl font-bold text-primary transition-colors duration-300">
               Altibbe
             </div>
           </Link>
