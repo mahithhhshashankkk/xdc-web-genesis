@@ -1,12 +1,20 @@
-import { Youtube, Twitter, Instagram } from "lucide-react";
+import { Youtube, Instagram, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
+// Custom X (Twitter) icon component
+const XIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
+
 const Footer = () => {
   const socialLinks = [
-    { icon: Youtube, href: "#", label: "YouTube" },
-    { icon: Twitter, href: "#", label: "X (Twitter)" },
-    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Youtube, href: "#", label: "YouTube", hoverColor: "red" },
+    { icon: XIcon, href: "#", label: "X", hoverColor: "black" },
+    { icon: Facebook, href: "#", label: "Facebook", hoverColor: "blue" },
+    { icon: Instagram, href: "#", label: "Instagram", hoverColor: "pink" },
   ];
 
   return (
@@ -96,41 +104,54 @@ const Footer = () => {
 
         {/* Centered Social Media Section */}
         <div className="flex justify-center space-x-8 pt-12 mt-12 border-t border-border">
-          <Button
-            variant="ghost"
-            size="lg"
-            asChild
-            className="hover:text-red-500 hover:bg-red-500/10 transition-all duration-300 hover:scale-125 hover:shadow-lg hover:shadow-red-500/20 relative group overflow-hidden w-16 h-16"
-          >
-            <a href="#" aria-label="YouTube">
-              <Youtube className="w-8 h-8 relative z-10 transition-transform duration-300 group-hover:scale-110" />
-              <div className="absolute inset-0 bg-red-500/20 rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
-            </a>
-          </Button>
+          {socialLinks.map((social, index) => {
+            const getHoverClasses = (color: string) => {
+              switch (color) {
+                case "red":
+                  return "hover:text-red-500 hover:bg-red-500/10 hover:shadow-red-500/20";
+                case "black":
+                  return "hover:text-black hover:bg-black/10 hover:shadow-black/20";
+                case "blue":
+                  return "hover:text-blue-600 hover:bg-blue-600/10 hover:shadow-blue-600/20";
+                case "pink":
+                  return "hover:text-pink-500 hover:bg-pink-500/10 hover:shadow-pink-500/20";
+                default:
+                  return "hover:text-primary hover:bg-primary/10 hover:shadow-primary/20";
+              }
+            };
 
-          <Button
-            variant="ghost"
-            size="lg"
-            asChild
-            className="hover:text-sky-400 hover:bg-sky-400/10 transition-all duration-300 hover:scale-125 hover:shadow-lg hover:shadow-sky-400/20 relative group overflow-hidden w-16 h-16"
-          >
-            <a href="#" aria-label="X (Twitter)">
-              <Twitter className="w-8 h-8 relative z-10 transition-transform duration-300 group-hover:scale-110" />
-              <div className="absolute inset-0 bg-sky-400/20 rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
-            </a>
-          </Button>
+            const getBgColor = (color: string) => {
+              switch (color) {
+                case "red":
+                  return "bg-red-500/20";
+                case "black":
+                  return "bg-black/20";
+                case "blue":
+                  return "bg-blue-600/20";
+                case "pink":
+                  return "bg-pink-500/20";
+                default:
+                  return "bg-primary/20";
+              }
+            };
 
-          <Button
-            variant="ghost"
-            size="lg"
-            asChild
-            className="hover:text-pink-500 hover:bg-pink-500/10 transition-all duration-300 hover:scale-125 hover:shadow-lg hover:shadow-pink-500/20 relative group overflow-hidden w-16 h-16"
-          >
-            <a href="#" aria-label="Instagram">
-              <Instagram className="w-8 h-8 relative z-10 transition-transform duration-300 group-hover:scale-110" />
-              <div className="absolute inset-0 bg-pink-500/20 rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
-            </a>
-          </Button>
+            return (
+              <Button
+                key={index}
+                variant="ghost"
+                size="lg"
+                asChild
+                className={`${getHoverClasses(social.hoverColor)} transition-all duration-300 hover:scale-125 hover:shadow-lg relative group overflow-hidden w-16 h-16`}
+              >
+                <a href={social.href} aria-label={social.label}>
+                  <social.icon className="w-8 h-8 relative z-10 transition-transform duration-300 group-hover:scale-110" />
+                  <div
+                    className={`absolute inset-0 ${getBgColor(social.hoverColor)} rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300`}
+                  ></div>
+                </a>
+              </Button>
+            );
+          })}
         </div>
       </div>
 
