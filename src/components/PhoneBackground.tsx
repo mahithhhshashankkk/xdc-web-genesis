@@ -60,7 +60,7 @@ const PhoneBackground = () => {
           }}
         >
           <div
-            className="relative text-primary/40"
+            className="relative text-primary/70"
             style={{
               fontSize: `${phone.size}px`,
             }}
@@ -90,10 +90,10 @@ const PhoneBackground = () => {
             }}
           >
             {/* Signal bars */}
-            <div className="absolute bottom-0 left-0 w-1 h-2 bg-primary/30"></div>
-            <div className="absolute bottom-0 left-1.5 w-1 h-3 bg-primary/25"></div>
-            <div className="absolute bottom-0 left-3 w-1 h-4 bg-primary/20"></div>
-            <div className="absolute bottom-0 left-4.5 w-1 h-5 bg-primary/15"></div>
+            <div className="absolute bottom-0 left-0 w-1 h-2 bg-primary/60"></div>
+            <div className="absolute bottom-0 left-1.5 w-1 h-3 bg-primary/50"></div>
+            <div className="absolute bottom-0 left-3 w-1 h-4 bg-primary/40"></div>
+            <div className="absolute bottom-0 left-4.5 w-1 h-5 bg-primary/30"></div>
           </div>
         </div>
       ))}
@@ -112,7 +112,7 @@ const PhoneBackground = () => {
           }}
         >
           <div
-            className="relative text-muted-foreground/40"
+            className="relative text-muted-foreground/70"
             style={{
               fontSize: `${message.size}px`,
             }}
@@ -123,31 +123,31 @@ const PhoneBackground = () => {
       ))}
 
       {/* Phone Network Pattern */}
-      <div className="absolute top-1/4 right-1/4 opacity-10">
+      <div className="absolute top-1/4 right-1/4 opacity-25">
         <div className="relative w-32 h-32">
           {/* Network tower */}
-          <div className="absolute top-1/2 left-1/2 w-1 h-16 bg-primary/20 transform -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute top-1/2 left-1/2 w-1 h-16 bg-primary/40 transform -translate-x-1/2 -translate-y-1/2"></div>
 
           {/* Signal circles */}
-          <div className="absolute top-1/2 left-1/2 w-8 h-8 border border-primary/15 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-ping"></div>
+          <div className="absolute top-1/2 left-1/2 w-8 h-8 border border-primary/30 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-ping"></div>
           <div
-            className="absolute top-1/2 left-1/2 w-16 h-16 border border-primary/10 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-ping"
+            className="absolute top-1/2 left-1/2 w-16 h-16 border border-primary/20 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-ping"
             style={{ animationDelay: "0.5s" }}
           ></div>
           <div
-            className="absolute top-1/2 left-1/2 w-24 h-24 border border-primary/8 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-ping"
+            className="absolute top-1/2 left-1/2 w-24 h-24 border border-primary/15 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-ping"
             style={{ animationDelay: "1s" }}
           ></div>
         </div>
       </div>
 
       {/* Contact Icons Pattern */}
-      <div className="absolute bottom-1/3 left-1/4 opacity-15">
+      <div className="absolute bottom-1/3 left-1/4 opacity-30">
         <div className="relative w-48 h-24">
           {["📧", "📞", "📠", "💻", "📮", "📬"].map((icon, i) => (
             <div
               key={i}
-              className="absolute text-muted-foreground/30 animate-pulse"
+              className="absolute text-muted-foreground/60 animate-pulse"
               style={{
                 left: `${(i % 3) * 33}%`,
                 top: `${Math.floor(i / 3) * 50}%`,
@@ -163,12 +163,12 @@ const PhoneBackground = () => {
       </div>
 
       {/* Phone Keypad Pattern */}
-      <div className="absolute top-1/3 left-1/3 opacity-10">
+      <div className="absolute top-1/3 left-1/3 opacity-25">
         <div className="relative w-24 h-32">
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}
-              className="absolute w-4 h-4 border border-primary/20 rounded animate-pulse"
+              className="absolute w-4 h-4 border border-primary/40 rounded animate-pulse"
               style={{
                 left: `${(i % 3) * 33}%`,
                 top: `${Math.floor(i / 3) * 25}%`,
@@ -176,7 +176,7 @@ const PhoneBackground = () => {
                 animationDuration: `${1.5 + Math.random() * 1}s`,
               }}
             >
-              <span className="text-xs text-primary/15 flex items-center justify-center h-full">
+              <span className="text-xs text-primary/30 flex items-center justify-center h-full">
                 {i === 9 ? "*" : i === 10 ? "0" : i === 11 ? "#" : i + 1}
               </span>
             </div>
